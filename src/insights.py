@@ -39,7 +39,9 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    # solução encontrada em:
+    # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+    return [job for job in jobs if job["job_type"] == job_type]
 
 
 def get_unique_industries(path):
