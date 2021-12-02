@@ -5,7 +5,7 @@ import csv
 @lru_cache
 def read(path):
     try:
-        with open("jobs.csv", "r") as file:
+        with open(path, "r") as file:
             content = csv.DictReader(file)
             return[line for line in content]
     except OSError:
