@@ -1,15 +1,14 @@
-from typing import Dict
 from src.jobs import read
 
 
-def get_job_type(n: "Dict[str, str]") -> str:
-    return n["job_type"]
+def prop(prop_name: str):
+    def getByProp(element: str) -> str:
+        return element[prop_name]
+    return getByProp
 
 
 def get_unique_job_types(path: str) -> list:
-    data = read(path)
-    unique_jobs = set(map(get_job_type, data))
-    return unique_jobs
+    return set(map(prop("job_type"), read(path)))
 
 
 def filter_by_job_type(jobs, job_type):
