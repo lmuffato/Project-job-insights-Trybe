@@ -48,21 +48,19 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    file = read(path)
 
-    Must call `read`
+    max_salaries = [
+        int(item["max_salary"])
+        for item in file
+        if item["max_salary"] != ""
+        and item["max_salary"].isnumeric()
+        ]
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    return max(max_salaries)
 
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+
+get_max_salary("src/jobs.csv")
 
 
 def get_min_salary(path):
