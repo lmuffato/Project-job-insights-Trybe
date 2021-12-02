@@ -60,25 +60,17 @@ def get_max_salary(path):
     return max(max_salaries)
 
 
-get_max_salary("src/jobs.csv")
-
-
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    file = read(path)
 
-    Must call `read`
+    min_salaries = [
+        int(item["min_salary"])
+        for item in file
+        if item["min_salary"] != ""
+        and item["min_salary"].isnumeric()
+        ]
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    return min(min_salaries)
 
 
 def matches_salary_range(job, salary):
