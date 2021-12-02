@@ -33,21 +33,14 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
+    result = []
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
+    for row in jobs:
+        row_industry = row["industry"]
+        if row_industry == industry:
+            result.append(row)
 
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    return result
 
 
 def get_max_salary(path):
