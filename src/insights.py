@@ -13,21 +13,12 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    filtered_jobs = []
+    for job in jobs:
+        for type_of_job in job['job_type'].split(','):
+            if type_of_job == job_type:
+                filtered_jobs.append(job)
+    return filtered_jobs
 
 
 # https://stackoverflow.com/questions/3845423/remove-empty-strings-from-a-list-of-strings
