@@ -1,19 +1,31 @@
+from src import jobs
+# import dict
+
+def get_unique_values(key, vector):
+    unique_list = set()
+    for list_item in vector:
+        if list_item[key] != None:
+            unique_list.add(list_item[key])
+    return unique_list
+
+# Source (artigo sobre como filtrar valores nulos ou false em Python):
+# https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
-
     Must call `read`
-
     Parameters
     ----------
     path : str
         Must be passed to `read`
-
     Returns
     -------
     list
         List of unique job types
     """
-    return []
+    list_of_dicts = jobs.read(path)
+    jobs_types_list = get_unique_values('job_type', list_of_dicts)
+    return jobs_types_list
 
 
 def filter_by_job_type(jobs, job_type):
