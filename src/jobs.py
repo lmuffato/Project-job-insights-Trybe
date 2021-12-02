@@ -9,6 +9,7 @@ def read(path):
     ----------
     path : str
         Full path to file
+        // primeiro commit do projeto
 
     Returns
     -------
