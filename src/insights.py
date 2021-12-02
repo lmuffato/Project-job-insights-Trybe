@@ -8,6 +8,17 @@ def prop(prop_name: str):
 
 
 def get_unique_job_types(path: str) -> list:
+    """Checks all different job types and returns a list of them
+    Must call `read`
+    Parameters
+    ----------
+    path : str
+        Must be passed to `read`
+    Returns
+    -------
+    list
+        List of unique job types
+    """
     return set(map(prop("job_type"), read(path)))
 
 
