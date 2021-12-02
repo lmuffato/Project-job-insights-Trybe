@@ -3,12 +3,13 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     jobs_content = read(path)
-    unique_jobs = set()
+    unique_job_types = set()
     for job in jobs_content:
-        for job_title in job["job_title"].split(','):
-            unique_jobs.add(job_title)
+        for job_types in job["job_type"].split(','):
 
-    return [unique_jobs]
+            unique_job_types.add(job_types)
+
+    return list(unique_job_types)
 
 
 def filter_by_job_type(jobs, job_type):
@@ -28,15 +29,17 @@ def filter_by_job_type(jobs, job_type):
     """
     return []
 
+# https://stackoverflow.com/questions/3845423/remove-empty-strings-from-a-list-of-strings
+
 
 def get_unique_industries(path):
     jobs_content = read(path)
     unique_industries = set()
     for job in jobs_content:
-        for job_industries in job["industry"].split(','):
+        for job_industries in job["industry"].split('"'):
             unique_industries.add(job_industries)
-
-    return [unique_industries]
+    industries = list(filter(None, unique_industries))
+    return industries
 
 
 def filter_by_industry(jobs, industry):
