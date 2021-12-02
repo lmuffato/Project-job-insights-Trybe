@@ -1,9 +1,9 @@
-from jobs import read
+from src.jobs import read
 
 
 def get_unique_job_types(path):
-    list = read(path)
-    dic_types = set(job["job_type"] for job in list)
+    lists = read(path)
+    dic_types = set(job["job_type"] for job in lists)
     return dic_types
 
 
