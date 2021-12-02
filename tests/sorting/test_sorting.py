@@ -81,3 +81,9 @@ def test_sort_by_criteria():
         ValueError, match=f"invalid sorting criteria: {invalid_criteria}"
     ):
         sort_by(criterialist, invalid_criteria)
+
+    with pytest.raises(ValueError, match="invalid sorting criteria: """):
+        sort_by(criterialist, "")
+
+    with pytest.raises(ValueError, match="invalid sorting criteria: None"):
+        sort_by(criterialist, None)
