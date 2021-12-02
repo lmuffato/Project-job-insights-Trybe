@@ -58,6 +58,7 @@ def filter_by_industry(jobs, industry):
 # Referência: https://pt.stackoverflow.com/questions/257905/
 # retornando-somente-o-maior-valor-de-uma-lista-python
 # Resolvido com ajuda do aluno Murilo Gonçalves
+# Resolvido com ajuda do aluno Rafael Medeiros
 def get_max_salary(path):
     dados = read(path)
     salario = set()
@@ -65,13 +66,14 @@ def get_max_salary(path):
         if elemento["max_salary"] != "":
             try:
                 salario.add(int(elemento["max_salary"]))
-            except:
-                print("Erro")
+            except ValueError:
+                print("Error")
 
     return max(salario)
 
 
 # Resolvido com ajuda do aluno Murilo Gonçalves
+# Resolvido com ajuda do aluno Rafael Medeiros
 def get_min_salary(path):
     dados = read(path)
     salario = set()
@@ -79,9 +81,8 @@ def get_min_salary(path):
         if elemento["min_salary"] != "":
             try:
                 salario.add(int(elemento["min_salary"]))
-            except:
-                print("Erro")
-
+            except ValueError:
+                print("Error")
 
     return min(salario)
 
