@@ -28,7 +28,6 @@ def filter_by_job_type(jobs, job_type):
     return []
 
 
-'''
 def get_unique_industries(path):
     data = read(path)
     industries = []
@@ -37,7 +36,6 @@ def get_unique_industries(path):
             industries.append(row['industry'])
     print(industries)
     return industries
-'''
 
 
 def filter_by_industry(jobs, industry):
