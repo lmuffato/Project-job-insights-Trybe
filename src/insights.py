@@ -103,16 +103,17 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
+
     jobs_list = read(path)
-    jobs_max_salary = 0
+    jobs_min_salary = 0
     for job in jobs_list:
         if len(job["max_salary"]) != 0 and not job["max_salary"].isalpha():
             current_salary = int(job["max_salary"])
-            if jobs_max_salary == 0:
-                jobs_max_salary = current_salary
-            elif jobs_max_salary < current_salary:
-                jobs_max_salary = current_salary
-    return jobs_max_salary
+            if jobs_min_salary == 0:
+                jobs_min_salary = current_salary
+            elif jobs_min_salary < current_salary:
+                jobs_min_salary = current_salary
+    return jobs_min_salary
 
 
 def get_min_salary(path):
@@ -130,7 +131,16 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    jobs_list = read(path)
+    jobs_min_salary = 0
+    for job in jobs_list:
+        if len(job["min_salary"]) != 0 and not job["min_salary"].isalpha():
+            current_salary = int(job["min_salary"])
+            if jobs_min_salary == 0:
+                jobs_min_salary = current_salary
+            elif jobs_min_salary > current_salary:
+                jobs_min_salary = current_salary
+    return jobs_min_salary
 
 
 def matches_salary_range(job, salary):
