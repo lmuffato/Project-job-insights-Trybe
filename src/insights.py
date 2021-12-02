@@ -7,7 +7,7 @@ def get_unique_job_types(path):
     for job in jobs_content:
         for job_title in job["job_title"].split(','):
             unique_jobs.add(job_title)
-
+    print(unique_jobs)
     return [unique_jobs]
 
 
@@ -30,21 +30,13 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    jobs_content = read(path)
+    unique_industries = set()
+    for job in jobs_content:
+        for job_industries in job["industry"].split(','):
+            unique_industries.add(job_industries)
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    return [unique_industries]
 
 
 def filter_by_industry(jobs, industry):
