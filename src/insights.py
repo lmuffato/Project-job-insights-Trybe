@@ -11,6 +11,12 @@ def get_unique_values(key, vector):
 
 # Source (artigo sobre como filtrar valores nulos ou false em Python):
 # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+def filter_by_param(key, category_name, vector):
+    list_result = []
+    for list_item in vector:
+        if list_item[key] == category_name:
+            list_result.append(list_item)
+    return list_result
 
 
 def get_unique_job_types(path):
@@ -45,7 +51,8 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    result = filter_by_param('job_type', job_type, jobs)
+    return result
 
 
 def get_unique_industries(path):
@@ -83,7 +90,8 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    result = filter_by_param('industry', industry, jobs)
+    return result
 
 
 def get_max_salary(path):
