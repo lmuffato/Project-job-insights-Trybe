@@ -71,7 +71,7 @@ def get_min_salary(path):
     file = read(path)
     previusList = []
     for row in file:
-        if row['min_salary'] != '':
+        if row['min_salary'] != '' and row['min_salary'] != 'invalid':
             previusList.append(int(row['min_salary']))
     return min(previusList)
 
