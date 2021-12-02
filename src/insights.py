@@ -27,14 +27,12 @@ def get_unique_industries(path):
     return industries
 
 
-'''
 def filter_by_industry(jobs, industry):
     industries = []
     for row in jobs:
         if row['industry'] == industry:
             industries.append(row)
     return industries
-'''
 
 
 def get_max_salary(path):
