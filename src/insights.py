@@ -3,7 +3,6 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     readFile = read(path)
-    # typesOfJobs = readFile["job_type"]
     result = []
     for info in readFile:
         if info["job_type"] is None or info["job_type"] in result:
@@ -15,14 +14,12 @@ def get_unique_job_types(path):
 
 def filter_by_job_type(jobs, job_type):
     """Filters a list of jobs by job_type
-
     Parameters
     ----------
     jobs : list
         List of jobs to be filtered
     job_type : str
         Job type for the list filter
-
     Returns
     -------
     list
@@ -32,20 +29,13 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
+    readFile = read(path)
+    result = []
+    for info in readFile:
+        if info["industry"] is None or info["industry"] in result:
+            continue
+        else:
+            result.append(info["industry"])
     return []
 
 
