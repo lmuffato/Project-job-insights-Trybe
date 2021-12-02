@@ -25,25 +25,16 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    pass
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    jobs_read = read(path)
+    my_set = ()
+    for row in jobs_read:
+        if row["industry"] != "":
+            my_set.add(row["industry"])
+    return my_set
 
 
 def filter_by_industry(jobs, industry):
@@ -61,43 +52,27 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    pass
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    jobs_read = read(path)
+    my_set = []
+    for row in jobs_read:
+        if row["max_salary"].isnumeric():
+            my_set.append(int(row["max_salary"]))
+            max_sal = max(my_set)
+    return max_sal
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    jobs_read = read(path)
+    my_set = []
+    for row in jobs_read:
+        if row["min_salary"].isnumeric():
+            my_set.append(int(row["min_salary"]))
+            min_sal = min(my_set)
+    return min_sal
 
 
 def matches_salary_range(job, salary):
@@ -141,4 +116,4 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    pass
