@@ -7,7 +7,7 @@ def get_unique_job_types(path):
     for elemento in dados:
         if elemento["job_type"] != "":
             categorias.add(elemento["job_type"])
-    return categorias
+    return categorias 
 
 
 def filter_by_job_type(jobs, job_type):
@@ -55,40 +55,34 @@ def filter_by_industry(jobs, industry):
     return []
 
 
+# Referência: https://pt.stackoverflow.com/questions/257905/
+# retornando-somente-o-maior-valor-de-uma-lista-python
+# Resolvido com ajuda do aluno Murilo Gonçalves
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    dados = read(path)
+    salario = set()
+    for elemento in dados:
+        if elemento["max_salary"] != "":
+            try:
+                salario.add(int(elemento["max_salary"]))
+            except:
+                pass
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    return max(salario)
 
 
+# Resolvido com ajuda do aluno Murilo Gonçalves
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    dados = read(path)
+    salario = set()
+    for elemento in dados:
+        if elemento["min_salary"] != "":
+            try:
+                salario.add(int(elemento["min_salary"]))
+            except:
+                pass
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    return min(salario)
 
 
 def matches_salary_range(job, salary):
