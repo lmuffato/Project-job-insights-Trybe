@@ -10,5 +10,3 @@ def read(path):
             my_dict.append(line)
 
     return my_dict
-
-# https://stackoverflow.com/questions/2387697/best-way-to-convert-csv-data-to-dict
