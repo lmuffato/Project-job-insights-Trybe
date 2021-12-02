@@ -3,7 +3,7 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     jobs_read = read(path)
-    my_set = ()
+    my_set = set()
     for row in jobs_read:
         if row["job_type"] != "":
             my_set.add(row["job_type"])
@@ -30,7 +30,7 @@ def filter_by_job_type(jobs, job_type):
 
 def get_unique_industries(path):
     jobs_read = read(path)
-    my_set = ()
+    my_set = set()
     for row in jobs_read:
         if row["industry"] != "":
             my_set.add(row["industry"])
