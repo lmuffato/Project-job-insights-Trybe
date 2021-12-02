@@ -8,4 +8,4 @@ def read(path):
         dados_lidos = csv.DictReader(jobs_csv)
         for elemento in dados_lidos:
             dados.append(elemento)
-    return(dados)
+    return dados
