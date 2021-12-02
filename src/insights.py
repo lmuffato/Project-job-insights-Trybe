@@ -29,6 +29,7 @@ def filter_by_job_type(jobs, job_type):
     """
     return []
 
+
 # https://stackoverflow.com/questions/3845423/remove-empty-strings-from-a-list-of-strings
 
 
