@@ -1,6 +1,7 @@
 import math
 from datetime import date
 
+
 def max_salary_key(job):
     """
     Gets max_salary as a sorting key.
