@@ -32,7 +32,7 @@ def get_unique_industries(path):
     readFile = read(path)
     result = []
     for info in readFile:
-        if info["industry"] is None or info["industry"] in result:
+        if not info["industry"].rstrip() or info["industry"] in result:
             continue
         else:
             result.append(info["industry"])
