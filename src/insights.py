@@ -98,7 +98,19 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    jobs = read(path)
+    max_salary = 0
+    salary = 0
+    for job in jobs:
+        if len(job["max_salary"]) != 0 and not job["max_salary"].isalpha():
+            # a funcão `len`, verifica apenas chaves que contenham valores
+            # checando tamanho do seu valor (aqui, só é aceito se for > que 0)
+            # a função not `isalpha` verifica se o campo possui valor numérico
+            # https://www.w3schools.com/python/ref_string_isalpha.asp
+            salary = int(job["max_salary"])
+        if salary > max_salary:
+            max_salary = salary
+    return max_salary
 
 
 def get_min_salary(path):
