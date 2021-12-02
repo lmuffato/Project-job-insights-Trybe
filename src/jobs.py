@@ -16,3 +16,6 @@ def read(path):
         List of rows as dicts
     """
     return []
+
+
+# linha para o primeiro commit
