@@ -60,23 +60,18 @@ def filter_by_industry(jobs, industry):
     """
     return []
 
+# https://www.pythonpool.com/python-check-if-string-is-integer/
+
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    jobs_content = read(path)
+    biggest_salary = 0
+    for job in jobs_content:
+        for salary in job["max_salary"].split('"'):
+            if salary.isnumeric() and float(salary) > biggest_salary:
+                biggest_salary = float(salary)
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    return int(biggest_salary)
 
 
 def get_min_salary(path):
