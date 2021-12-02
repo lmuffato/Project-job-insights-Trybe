@@ -1,4 +1,5 @@
 from src.jobs import read
+import sys
 
 
 def get_unique_job_types(path):
@@ -61,6 +62,7 @@ def filter_by_industry(jobs, industry):
 def get_max_salary(path):
     jobs_data = read(path)
     max_salary = 0
+
     for job in jobs_data:
         if(job['max_salary'] != '' and not job['max_salary'].isalpha()):
             salary = int(job['max_salary'])
@@ -71,21 +73,17 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    jobs_data = read(path)
+    # Source: https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints
+    min_salary = sys.maxsize
 
-    Must call `read`
+    for job in jobs_data:
+        if(job['min_salary'] != '' and not job['min_salary'].isalpha()):
+            salary = int(job['min_salary'])
+            if(salary < min_salary):
+                min_salary = salary
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    return min_salary
 
 
 def matches_salary_range(job, salary):
