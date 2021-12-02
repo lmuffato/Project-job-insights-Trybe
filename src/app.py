@@ -7,3 +7,4 @@ def create_app() -> Flask:
     routes_and_views.init_app(app)
 
     return app
+# //
