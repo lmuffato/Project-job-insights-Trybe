@@ -1,18 +1,10 @@
 from functools import lru_cache
+# Source: https://docs.python.org/3/library/csv.html
+from csv import DictReader
 
 
 @lru_cache
 def read(path):
-    """Reads a file from a given path and returns its contents
-
-    Parameters
-    ----------
-    path : str
-        Full path to file
-
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
-    return []
+    with open(path, mode='r') as csvfile:
+        reader = DictReader(csvfile)
+        return [row for row in reader]
