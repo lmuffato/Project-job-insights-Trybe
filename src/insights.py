@@ -75,20 +75,14 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    jobs_content = read(path)
+    lower_salary = get_max_salary(path)
+    for job in jobs_content:
+        for salary in job["min_salary"].split('"'):
+            if salary.isnumeric() and float(salary) < lower_salary:
+                lower_salary = float(salary)
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
+    return int(lower_salary)
     pass
 
 
