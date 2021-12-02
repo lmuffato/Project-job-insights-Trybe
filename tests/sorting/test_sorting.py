@@ -9,9 +9,9 @@ job_list = [
 
 def test_sort_by_criteria():
     mock_max_salary = [
-        {"min_salary": 100, "max_salary": 2000, "date_posted": "2021-03-01"},
-        {"min_salary": 2400, "max_salary": 6000, "date_posted": "2020-06-10"},
         {"min_salary": 3000, "max_salary": 7000, "date_posted": "2019-05-25"},
+        {"min_salary": 2400, "max_salary": 6000, "date_posted": "2020-06-10"},
+        {"min_salary": 100, "max_salary": 2000, "date_posted": "2021-03-01"},
     ]
 
     mock_min_salary = [
@@ -21,9 +21,9 @@ def test_sort_by_criteria():
     ]
 
     mock_date_posted = [
-        {"min_salary": 3000, "max_salary": 7000, "date_posted": "2019-05-25"},
-        {"min_salary": 2400, "max_salary": 6000, "date_posted": "2020-06-10"},
         {"min_salary": 100, "max_salary": 2000, "date_posted": "2021-03-01"},
+        {"min_salary": 2400, "max_salary": 6000, "date_posted": "2020-06-10"},
+        {"min_salary": 3000, "max_salary": 7000, "date_posted": "2019-05-25"},
     ]
 
     sort_by(job_list, "max_salary")
