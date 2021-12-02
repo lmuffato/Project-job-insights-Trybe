@@ -61,10 +61,12 @@ def get_max_salary(path):
     readFile = read(path)
     result = 0
     for info in readFile:
-        if info["max_salary"] is None or int(info["max_salary"]) < int(result):
+        if not info["max_salary"].rstrip():
+            continue
+        elif int(info["max_salary"]) < int(result):
             continue
         else:
-            result = int(info["job_type"])
+            result = int(info["max_salary"])
     return result
 
 
