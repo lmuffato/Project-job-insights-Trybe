@@ -79,9 +79,7 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return [job
-            for job in jobs
-            if job["industry"] == industry]
+    return [job for job in jobs if job["industry"] == industry]
 
 
 def get_max_salary(path):
@@ -157,7 +155,16 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    if (
+        not job["min_salary"]
+        or not job["max_salary"]
+        or not isinstance(job["min_salary"], int)
+        or not isinstance(job["max_salary"], int)
+        or job["min_salary"] > job["max_salary"]
+        or not isinstance(salary, int)
+    ):
+        raise ValueError
+    return job["min_salary"] <= salary <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
