@@ -353,7 +353,7 @@ Os dados apresentam faixas salariais para cada emprego exibido. Vamos agora enco
 ##### 5 - Implemente a função `get_min_salary`
 local: `src/insights.py`
 
-Os dados apresentam faixas salariais para cada emprego exibido. Vamos agora encontrar o maior valor de todas as faixas.
+Os dados apresentam faixas salariais para cada emprego exibido. Vamos agora encontrar o menor valor de todas as faixas.
 
 - A função deve obter os dados da mesma forma que o requisito 2.
 - A função deve ignorar os valores ausentes.
