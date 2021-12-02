@@ -11,6 +11,8 @@ def get_unique_values(key, vector):
 
 # Source (artigo sobre como filtrar valores nulos ou false em Python):
 # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+
+
 def filter_by_param(key, category_name, vector):
     list_result = []
     for list_item in vector:
