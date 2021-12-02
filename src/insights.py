@@ -147,7 +147,6 @@ def get_min_salary(path):
 
 def matches_salary_range(job, salary):
     """Checks if a given salary is in the salary range of a given job
-
     Parameters
     ----------
     job : dict
@@ -168,7 +167,14 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    if (type(salary) is not int
+        or "min_salary" not in job
+        or "max_salary" not in job
+        or type(job["min_salary"]) is not int
+        or type(job["max_salary"]) is not int
+            or job["min_salary"] > job["max_salary"]):
+        raise ValueError('Value Error! Wrong data type.')
+    return job["min_salary"] <= salary <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
@@ -186,4 +192,18 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    list_of_jobs = []
+    for job in jobs:
+        try:
+            salary_range = matches_salary_range(job, salary)
+            if salary_range:
+                list_of_jobs.append(job)
+        except ValueError as err:
+            print(f"Unexpected {err=}, {type(err)=}")
+            pass
+    return list_of_jobs
+# Source:
+# https://cafeinacodificada.com.br/python-try-catch/
+# https://docs.python.org/pt-br/3/reference/compound_stmts.html?highlight=try#with
+# Exceptions and errors in Python:
+# https://docs.python.org/3/tutorial/errors.html?highlight=try%20except
