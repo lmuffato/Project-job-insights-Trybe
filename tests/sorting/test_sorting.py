@@ -6,17 +6,17 @@ jobs = [
     {
         "max_salary": "100",
         "min_salary": "10",
-        "date_posted": "2021-05-10",
+        "date_posted": "2020-05-10",
     },
     {
         "min_salary": "100",
         "max_salary": "500",
-        "date_posted": "2020-05-10",
+        "date_posted": "2021-10-05",
     },
     {
         "min_salary": "1000",
         "max_salary": "2000",
-        "date_posted": "2021-10-05",
+        "date_posted": "2021-05-10",
     },
 ]
 
