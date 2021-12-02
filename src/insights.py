@@ -1,19 +1,15 @@
+from jobs import read
+
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
+    list_jobs = read(path)
+    list_job_type = list(set(job["job_type"] for job in list_jobs))
 
-    Must call `read`
+    return list_job_type
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
 
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+# lista de elementos únicos utilizando o set()
+# https://www.delftstack.com/pt/howto/python/how-to-get-unique-values-from-a-list-in-python/
 
 
 def filter_by_job_type(jobs, job_type):
