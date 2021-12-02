@@ -59,7 +59,7 @@ def get_unique_industries(path):
     industries_types = set()
     file = jobs.read(path)
     for row in file:
-        if row["industry"] != '':
+        if row["industry"] != "":
             industries_types.add(row["industry"])
     return industries_types
 
@@ -122,7 +122,14 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    salaries = set()
+    file = jobs.read(path)
+    for row in file:
+        try:
+            salaries.add(int(row["min_salary"]))
+        except ValueError:
+            pass
+    return min(salaries)
 
 
 def matches_salary_range(job, salary):
