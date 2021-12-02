@@ -39,7 +39,7 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    # solução encontrada em:
+    # conhecimento para chegar na solução em:
     # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
     return [job for job in jobs if job["job_type"] == job_type]
 
@@ -83,7 +83,9 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    # conhecimento para chegar na solução em:
+    # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+    return [job for job in jobs if job["industry"] == industry]
 
 
 def get_max_salary(path):
