@@ -36,7 +36,7 @@ def get_unique_industries(path):
             continue
         else:
             result.append(info["industry"])
-    return []
+    return result
 
 
 def filter_by_industry(jobs, industry):
@@ -58,21 +58,14 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    readFile = read(path)
+    result = 0
+    for info in readFile:
+        if info["max_salary"] is None or int(info["max_salary"]) < int(result):
+            continue
+        else:
+            result = int(info["job_type"])
+    return result
 
 
 def get_min_salary(path):
