@@ -7,7 +7,7 @@ def get_unique_job_types(path):
     for elemento in dados:
         if elemento["job_type"] != "":
             categorias.add(elemento["job_type"])
-    return categorias 
+    return categorias
 
 
 def filter_by_job_type(jobs, job_type):
@@ -66,7 +66,7 @@ def get_max_salary(path):
             try:
                 salario.add(int(elemento["max_salary"]))
             except:
-                pass
+                print("Erro")
 
     return max(salario)
 
@@ -80,7 +80,8 @@ def get_min_salary(path):
             try:
                 salario.add(int(elemento["min_salary"]))
             except:
-                pass
+                print("Erro")
+
 
     return min(salario)
 
