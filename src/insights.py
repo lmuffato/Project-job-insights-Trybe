@@ -29,7 +29,7 @@ def filter_by_job_type(jobs, job_type):
     Returns
     -------
     list
-        List of jobs with provided job_type
+        List of jobs with provided job_types
     """
     return []
 
