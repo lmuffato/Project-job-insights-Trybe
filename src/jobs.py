@@ -19,7 +19,7 @@ def read(path):
         data = [row for row in reader]
     return data
 
-    # Sources:
-    # https://docs.python.org/3/library/csv.html#module-csv
-    # https://www.delftstack.com/howto/python/python-csv-to-dictionary/
-    # https://www.geeksforgeeks.org/load-csv-data-into-list-and-dictionary-using-python/
+# Sources:
+# https://docs.python.org/3/library/csv.html#module-csv
+# https://www.delftstack.com/howto/python/python-csv-to-dictionary/
+# https://www.geeksforgeeks.org/load-csv-data-into-list-and-dictionary-using-python/

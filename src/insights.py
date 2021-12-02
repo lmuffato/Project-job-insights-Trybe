@@ -1,15 +1,17 @@
 from src import jobs
 # import dict
 
+
 def get_unique_values(key, vector):
     unique_list = set()
     for list_item in vector:
-        if list_item[key] != None:
+        if list_item[key] is not None:
             unique_list.add(list_item[key])
     return unique_list
 
 # Source (artigo sobre como filtrar valores nulos ou false em Python):
 # https://www.digitalocean.com/community/tutorials/how-to-use-the-python-filter-function-pt
+
 
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
