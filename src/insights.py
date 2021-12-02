@@ -27,25 +27,14 @@ def get_unique_industries(path):
         if jobType != '' and jobType not in returnList:
             returnList.append(jobType)
     return returnList
-    return []
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    filterd = []
+    for job in jobs:
+        if job['industry'] == industry:
+            filterd.append(job)
+    return filterd
 
 
 def get_max_salary(path):
