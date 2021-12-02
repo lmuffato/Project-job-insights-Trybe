@@ -1,4 +1,4 @@
-from .jobs import read
+from src.jobs import read
 
 
 def get_unique_job_types(path):
@@ -13,8 +13,8 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-
-    return []
+    my_jobs = [job for job in jobs if job["job_type"] == job_type]
+    return my_jobs
 
 
 def get_unique_industries(path):
