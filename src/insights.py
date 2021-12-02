@@ -76,9 +76,11 @@ def matches_salary_range(job, salary):
         raise ValueError('Error')
     if not all_salaries.rstrip():
         raise ValueError('Error')
-    if not (type(salary) == int):
-        raise ValueError('Error')
-    if not (type(job["min_salary"]) == int or type(job["max_salary"]) == int):
+    if not (
+        type(job["min_salary"]) == int
+        or type(job["max_salary"]) == int
+        or type(salary) == int
+    ):
         raise ValueError('Error')
     if int(job['min_salary']) > int(job['max_salary']):
         raise ValueError('Error')
