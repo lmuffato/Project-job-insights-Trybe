@@ -63,7 +63,7 @@ def get_unique_industries(path):
         if job["industry"]:
             all_industries.add(job["industry"])
 
-    return jobs
+    return all_industries
 
 
 def filter_by_industry(jobs, industry):
