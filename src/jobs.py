@@ -1,18 +1,12 @@
 from functools import lru_cache
-# req1
+import csv
+
 
 @lru_cache
 def read(path):
-    """Reads a file from a given path and returns its contents
+    with open(path) as file:
+        # source: https://www.ti-enxame.com/pt/python/converter-um-objeto-csv.
+        # dictreader-em-uma-lista-de-dicionarios/1052560988/
+        jobs_data_reader = list(csv.DictReader(file))
 
-    Parameters
-    ----------
-    path : str
-        Full path to file
-
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
-    return []
+    return jobs_data_reader
