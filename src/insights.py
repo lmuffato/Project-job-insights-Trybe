@@ -5,7 +5,7 @@ from src import jobs
 def get_unique_values(key, vector):
     unique_list = set()
     for list_item in vector:
-        if list_item[key] is not None:
+        if list_item[key] != '' and list_item[key] != 'invalid':
             unique_list.add(list_item[key])
     return unique_list
 
@@ -63,7 +63,9 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    list_of_dicts = jobs.read(path)
+    unique_industries = get_unique_values('industry', list_of_dicts)
+    return unique_industries
 
 
 def filter_by_industry(jobs, industry):
