@@ -7,7 +7,7 @@ def get_unique_job_types(path):
     for job in jobs_content:
         for job_title in job["job_title"].split(','):
             unique_jobs.add(job_title)
-    print(unique_jobs)
+
     return [unique_jobs]
 
 
