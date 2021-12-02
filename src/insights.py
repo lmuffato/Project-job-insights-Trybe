@@ -5,8 +5,6 @@ def get_unique_job_types(path):
     list_jobs = read(path)
     return list(set(job["job_type"] for job in list_jobs))
 
-    # if job["job_type"] != ''
-
 
 # lista de elementos únicos utilizando o set()
 # https://www.delftstack.com/pt/howto/python/how-to-get-unique-values-from-a-list-in-python/
@@ -58,21 +56,16 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    list_jobs = read(path)
+    list_max_salary = list(
+        int(job["max_salary"])
+        for job in list_jobs if job["max_salary"].isnumeric())
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
+    return max(list_max_salary)
     pass
+
+# Pegar maior valor de uma lista
+# https://pt.stackoverflow.com/questions/257905/retornando-somente-o-maior-valor-de-uma-lista-python
 
 
 def get_min_salary(path):
