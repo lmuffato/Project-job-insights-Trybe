@@ -11,7 +11,15 @@ def nonEmpty(element: str) -> bool:
     return len(element) > 0
 
 
-def get_unique_job_types(path: str) -> list:
+def nonInvalid(element: str) -> bool:
+    try:
+        int(element)
+        return True
+    except ValueError:
+        return False
+
+
+def get_unique_job_types(path: str) -> "list[str]":
     """Checks all different job types and returns a list of them
     Must call `read`
     Parameters
@@ -24,6 +32,78 @@ def get_unique_job_types(path: str) -> list:
         List of unique job types
     """
     return list(set(filter(nonEmpty, map(prop("job_type"), read(path)))))
+
+
+def get_unique_industries(path) -> "list[str]":
+    """Checks all different industries and returns a list of them
+
+    Must call `read`
+
+    Parameters
+    ----------
+    path : str
+        Must be passed to `read`
+
+    Returns
+    -------
+    list
+        List of unique industries
+    """
+    return list(set(filter(nonEmpty, map(prop("industry"), read(path)))))
+
+
+def get_max_salary(path: str) -> int:
+    """Get the maximum salary of all jobs
+
+    Must call `read`
+
+    Parameters
+    ----------
+    path : str
+        Must be passed to `read`
+
+    Returns
+    -------
+    int
+        The maximum salary paid out of all job opportunities
+    """
+    return max(
+             map(
+               int,
+               filter(
+                 nonInvalid,
+                 filter(
+                   nonEmpty,
+                   map(
+                     prop("max_salary"),
+                     read(path))))))
+
+
+def get_min_salary(path: str) -> int:
+    """Get the minimum salary of all jobs
+
+    Must call `read`
+
+    Parameters
+    ----------
+    path : str
+        Must be passed to `read`
+
+    Returns
+    -------
+    int
+        The minimum salary paid out of all job opportunities
+    """
+    return min(
+             map(
+               int,
+               filter(
+                 nonInvalid,
+                 filter(
+                   nonEmpty,
+                   map(
+                     prop("min_salary"),
+                     read(path))))))
 
 
 def filter_by_job_type(jobs, job_type):
@@ -44,24 +124,6 @@ def filter_by_job_type(jobs, job_type):
     return []
 
 
-def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return list(set(filter(nonEmpty, map(prop("industry"), read(path)))))
-
-
 def filter_by_industry(jobs, industry):
     """Filters a list of jobs by industry
 
@@ -78,42 +140,6 @@ def filter_by_industry(jobs, industry):
         List of jobs with provided industry
     """
     return []
-
-
-def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
-
-
-def get_min_salary(path):
-    """Get the minimum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
 
 
 def matches_salary_range(job, salary):
