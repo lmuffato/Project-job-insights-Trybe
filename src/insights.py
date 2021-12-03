@@ -142,7 +142,7 @@ def filter_by_industry(jobs: list, industry: str) -> list:
     return list(filter(lambda job: job["industry"] == industry, jobs))
 
 
-def matches_salary_range(job, salary):
+def matches_salary_range(job: dict, salary: int) -> bool:
     """Checks if a given salary is in the salary range of a given job
 
     Parameters
@@ -160,15 +160,33 @@ def matches_salary_range(job, salary):
     Raises
     ------
     ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
+        If `job["min_salary"]` or `job["min_salary"]` doesn't exists
         If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
+        If `job["min_salary"]` is greater than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    # https://stackoverflow.com/questions/1602934/check-if-a-given-key-already-exists-in-a-dictionary
+    if (("min_salary" or "max_salary") not in job):
+        raise ValueError
+    if(type(job["min_salary"]) != int or type(job["max_salary"]) != int):
+        raise ValueError
+    if(int(job["min_salary"]) > int(job["max_salary"])):
+        raise ValueError
+    if(type(salary) != int):
+        raise ValueError
+    return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
 
 
-def filter_by_salary_range(jobs, salary):
+def curried_matches_salary_range(salary: int):
+    def f(job: dict) -> bool:
+        try:
+            return matches_salary_range(job, salary)
+        except ValueError:
+            return False
+    return f
+
+
+def filter_by_salary_range(jobs: list, salary: int) -> list:
     """Filters a list of jobs by salary range
 
     Parameters
@@ -183,4 +201,4 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    return list(filter(curried_matches_salary_range(salary), jobs))
