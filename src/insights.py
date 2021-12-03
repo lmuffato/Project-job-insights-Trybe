@@ -1,60 +1,28 @@
 from src.jobs import read
 
-
+# Requisito 2
 def get_unique_job_types(path):
     dados = read(path)
     categorias = set()
     for elemento in dados:
         if elemento["job_type"] != "":
             categorias.add(elemento["job_type"])
+
     return categorias
 
 
-def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
-
-
+# Requisito 3
 def get_unique_industries(path):
     dados = read(path)
     industrias = set()
     for elemento in dados:
         if elemento["industry"] != "":
             industrias.add(elemento["industry"])
+
     return industrias
 
 
-def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
-
-
+# Requisito 4
 # Referência: https://pt.stackoverflow.com/questions/257905/
 # retornando-somente-o-maior-valor-de-uma-lista-python
 # Resolvido com ajuda do aluno Murilo Gonçalves
@@ -72,6 +40,7 @@ def get_max_salary(path):
     return max(salario)
 
 
+# Requisito 5
 # Resolvido com ajuda do aluno Murilo Gonçalves
 # Resolvido com ajuda do aluno Rafael Medeiros
 def get_min_salary(path):
@@ -85,6 +54,25 @@ def get_min_salary(path):
                 print("Error")
 
     return min(salario)
+
+
+# Requisito 6
+def filter_by_job_type(jobs, job_type):
+    filtro = []
+    for elemento in jobs:
+        if elemento["job_type"] == job_type:
+            filtro.append(elemento)
+    return filtro
+
+
+# Requisito 7
+def filter_by_industry(jobs, industry):
+    filtro = []
+    for elemento in jobs:
+        if elemento["industry"] == industry:
+            filtro.append(elemento)
+
+    return filtro
 
 
 def matches_salary_range(job, salary):
