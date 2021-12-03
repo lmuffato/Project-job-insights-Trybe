@@ -70,6 +70,6 @@ def filter_by_salary_range(jobs, salary):
             if matches_salary_range(job, salary):
                 list_jobs_by_salary.append(job)
         except ValueError:
-            pass
+            print(f"Valores inválidos: {job}")
 
     return list_jobs_by_salary
