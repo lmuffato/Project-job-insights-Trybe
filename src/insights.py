@@ -120,7 +120,12 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    reader_datas = read(path)
+    min_value = set()
+    for row in reader_datas:
+        if row["min_salary"] != '' and row["min_salary"].isnumeric():
+            min_value.add(int(row["min_salary"]))
+    return min(min_value)
 
 
 def matches_salary_range(job, salary):
