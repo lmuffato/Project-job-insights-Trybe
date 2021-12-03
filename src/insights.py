@@ -70,23 +70,17 @@ def matches_salary_range(job, salary):
         or type(job["max_salary"]) is not int
         or job["min_salary"] > job["max_salary"]
     ):
-        raise ValueError("Value Error") # https://pt.stackoverflow.com/questions/127118/python-diferen%C3%A7a-entre-assert-e-raise
+        raise ValueError("Value Error")
+# https://pt.stackoverflow.com/questions/127118/python-diferen%C3%A7a-entre-assert-e-raise
     return job["min_salary"] <= salary <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    arrJobs = []
+    for job in jobs:
+        try:
+            if (matches_salary_range(job, salary)):
+                arrJobs.append(job)
+        except ValueError:
+            pass
+    return arrJobs
