@@ -74,26 +74,31 @@ def get_max_salary(path):
             max_salary.add(int(job["max_salary"]))
         except ValueError:
             pass
+    """
+    Quando a 'pass' instrução é executada,
+    nada acontece,
+    mas você evita receber um erro quando o código vazio não é permitido.
+    """
 
     return max(max_salary)
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    jobs_list = read(path)
+    min_salary = set()
 
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
+    for job in jobs_list:
+        try:
+            min_salary.add(int(job["min_salary"]))
+        except ValueError:
+            pass
     """
-    pass
+    Quando a 'pass' instrução é executada,
+    nada acontece,
+    mas você evita receber um erro quando o código vazio não é permitido.
+    """
+
+    return min(min_salary)
 
 
 def matches_salary_range(job, salary):
