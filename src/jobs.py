@@ -16,6 +16,6 @@ def get_unique_values(path, column):
     dict_list = read(path)
     set_to_return = set()
     for value in dict_list:
-        if (value != ''):
+        if (value[column] != ''):
             set_to_return.add(value[column])
     return set_to_return
