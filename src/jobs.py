@@ -19,3 +19,12 @@ def get_unique_values(path, column):
         if (value[column] != ''):
             set_to_return.add(value[column])
     return set_to_return
+
+
+def get_min_or_max(path, column, min_or_max):
+    dict_list = read(path)
+    values = []
+    for value in dict_list:
+        if (value[column].isnumeric()):
+            values.append(int(value[column]))
+    return min_or_max(values)
