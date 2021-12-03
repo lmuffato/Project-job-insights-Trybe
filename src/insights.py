@@ -44,21 +44,28 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    # """Checks all different industries and returns a list of them
 
-    Must call `read`
+    # Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    # Parameters
+    # ----------
+    # path : str
+    #     Must be passed to `read`
 
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    # Returns
+    # -------
+    # list
+    #     List of unique industries
+    # """
+    # return []
+    data_jobs = read(path)
+    unique_industries = set()
+    for industry in data_jobs:
+        if industry['industry'] != '' and \
+          industry['industry'] not in unique_industries:
+            unique_industries.add(industry['industry'])
+    return unique_industries
 
 
 def filter_by_industry(jobs, industry):
