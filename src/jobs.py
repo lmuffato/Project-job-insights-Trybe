@@ -28,3 +28,11 @@ def get_min_or_max(path, column, min_or_max):
         if (value[column].isnumeric()):
             values.append(int(value[column]))
     return min_or_max(values)
+
+
+def filter_jobs_by(jobs, column, filter):
+    filtered_list = []
+    for job in jobs:
+        if (job[column] == filter):
+            filtered_list.append(job)
+    return filtered_list
