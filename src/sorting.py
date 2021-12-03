@@ -9,7 +9,7 @@ def max_salary_key(job):
     Missing information is treated as the lowest possible value.
 
     Parameters
-    ----------
+    ---------
     job : dict
         Dict represeting a job from the dataset.
 
