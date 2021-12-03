@@ -22,4 +22,3 @@ def read(path):
     list
         List of rows as dicts
     """
-
