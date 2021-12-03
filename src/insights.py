@@ -40,7 +40,6 @@ def filter_by_job_type(jobs, job_type):
         List of jobs with provided job_type
     """
     filtered_job_type = []
-    job_types = set()
     for job in jobs:
         if job["job_type"] == job_type:
             filtered_job_type.append(job)
