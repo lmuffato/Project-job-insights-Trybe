@@ -1,3 +1,6 @@
+import src.jobs
+
+
 def get_unique_job_types(path):
     """Checks all different job types and returns a list of them
 
@@ -13,7 +16,18 @@ def get_unique_job_types(path):
     list
         List of unique job types
     """
-    return []
+    jobs_list = src.jobs.read(path)
+
+    list_of_jobs_type = {}
+
+    for job in jobs_list:
+
+        if not list_of_jobs_type.get(job["job_type"]):
+            list_of_jobs_type[job["job_type"]] = 0
+
+        list_of_jobs_type[job["job_type"]] += 1
+
+    return list_of_jobs_type
 
 
 def filter_by_job_type(jobs, job_type):
@@ -148,3 +162,5 @@ def filter_by_salary_range(jobs, salary):
         Jobs whose salary range contains `salary`
     """
     return []
+
+# https://docs.python.org/3/tutorial/modules.html
