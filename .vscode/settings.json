@@ -8,5 +8,11 @@
     "python.formatting.blackArgs": [
         "-l 79"
     ],
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "conventionalCommits.scopes": [
+        "jobs",
+        "insights",
+        "test_sorting",
+        "routes_and_views"
+    ]
 }
