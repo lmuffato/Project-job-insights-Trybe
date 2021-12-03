@@ -7,6 +7,10 @@ def prop(prop_name: str):
     return getByProp
 
 
+def nonEmpty(element: str) -> bool:
+    return len(element) > 0
+
+
 def get_unique_job_types(path: str) -> list:
     """Checks all different job types and returns a list of them
     Must call `read`
@@ -19,7 +23,7 @@ def get_unique_job_types(path: str) -> list:
     list
         List of unique job types
     """
-    return set(map(prop("job_type"), read(path)))
+    return list(set(filter(nonEmpty, map(prop("job_type"), read(path)))))
 
 
 def filter_by_job_type(jobs, job_type):
@@ -55,7 +59,7 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    return list(set(filter(nonEmpty, map(prop("industry"), read(path)))))
 
 
 def filter_by_industry(jobs, industry):
