@@ -1,4 +1,4 @@
-from src.jobs import get_unique_values, get_min_or_max
+from src.jobs import get_unique_values, get_min_or_max, filter_jobs_by
 
 
 def get_unique_job_types(path):
@@ -6,21 +6,7 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    return filter_jobs_by(jobs, 'job_type', job_type)
 
 
 def get_unique_industries(path):
@@ -28,21 +14,7 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    return filter_jobs_by(jobs, 'industry', industry)
 
 
 def get_max_salary(path):
