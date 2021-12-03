@@ -1,6 +1,8 @@
 import pandas as pd
 
+
 def get_unique_job_types(path):
+
     """Checks all different job types and returns a list of them
 
     Must call `read`
@@ -18,8 +20,6 @@ def get_unique_job_types(path):
     df = pd.read_csv(path)
     to_return = df['job_type'].unique()
     return to_return
-
-get_unique_job_types("src/jobs.csv")
 
 
 def filter_by_job_type(jobs, job_type):
@@ -55,7 +55,11 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    df = pd.read_csv(path)
+    pre_def_data = df['industry'].dropna()
+    to_return = pre_def_data.unique()
+
+    return to_return
 
 
 def filter_by_industry(jobs, industry):
