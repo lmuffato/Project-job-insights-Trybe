@@ -1,5 +1,5 @@
 from src.sorting import sort_by
-
+# esse requsito foi feito com o auxílio de felipe flores!
 mock_jobs = [
     {
         "min_salary": 30000,
