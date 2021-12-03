@@ -21,7 +21,6 @@ def get_unique_job_types(path):
     to_return = df['job_type'].unique()
     return to_return
 
-
 def filter_by_job_type(jobs, job_type):
     """Filters a list of jobs by job_type
 
@@ -37,7 +36,13 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    df = pd.DataFrame(jobs)
+    s = list(df.loc[df['job_type'] == job_type].T.to_dict().items())
+    to_return = []
+    for dir in s:
+        to_return.append(dir[1])
+    print(to_return)
+    return to_return
 
 
 def get_unique_industries(path):
