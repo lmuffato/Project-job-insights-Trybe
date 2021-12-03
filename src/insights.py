@@ -95,7 +95,12 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    df = pd.read_csv(path)
+    regex = "(^\d+$|^\d+\.\d+$)"
+    max_s = df['max_salary'].dropna().apply(str)
+    s = int(max_s[max_s.str.match(regex)].apply(float).max())
+
+    return s
 
 
 def get_min_salary(path):
@@ -113,7 +118,12 @@ def get_min_salary(path):
     int
         The minimum salary paid out of all job opportunities
     """
-    pass
+    df = pd.read_csv(path)
+    regex = "(^\d+$|^\d+\.\d+$)"
+    min_s = df['min_salary'].dropna().apply(str)
+    s = int(min_s[min_s.str.match(regex)].apply(float).min())
+
+    return s
 
 
 def matches_salary_range(job, salary):
