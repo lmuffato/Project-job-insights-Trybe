@@ -56,22 +56,16 @@ def filter_by_industry(jobs, industry):
     return []
 
 
+# Python Math Functions: https://www.w3schools.com/python/python_math.asp
+# Python String IsNumeric():
+# https://www.w3schools.com/python/ref_string_isnumeric.asp
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    job_list = read(path)
+    salary_array = []
+    for job in job_list:
+        if(job["max_salary"].isnumeric()):
+            salary_array.append(int(job["max_salary"]))
+    return max(salary_array)
 
 
 def get_min_salary(path):
