@@ -82,13 +82,13 @@ def filter_by_industry(jobs, industry):
 # Referência 2: https://pt.stackoverflow.com/questions/
 # 127118/python-diferen%C3%A7a-entre-assert-e-raise
 def matches_salary_range(job, salary):
-    if ("min_salary" not in job): raise ValueError("Não está presente")
-    if ("max_salary" not in job): raise ValueError("Não está presente")
-    if (type(job["max_salary"]) != int): raise ValueError("Não é numérico")
-    if (type(job["min_salary"]) != int): raise ValueError("Não é numérico")
+    if ("min_salary" not in job or "max_salary" not in job):
+        raise ValueError("Não está presente")
+    if (type(job["max_salary"]) != int or type(job["min_salary"]) != int):
+        raise ValueError("Não é numérico")
     if (job["min_salary"] > job["max_salary"]): raise ValueError("Min > Max")
     if (type(salary) != int): raise ValueError("Não é numérico")
-    
+
     return (job["min_salary"] <= salary <= job["max_salary"])
 
 
