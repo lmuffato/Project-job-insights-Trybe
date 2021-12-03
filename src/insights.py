@@ -15,21 +15,15 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
+    list_jobs_type = [
+      job for job in jobs
+      if job_type == job['job_type']
+    ]
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
+    return list_jobs_type
 
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+
+# print(filter_by_job_type(read(path), 'ABA Therapist'))
 
 
 def get_unique_industries(path):
