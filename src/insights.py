@@ -79,7 +79,9 @@ def get_max_salary(path):
 
 def get_min_salary(path):
     jobs_data = read(path)
-    # Source: https://stackoverflow.com/questions/7604966/maximum-and-minimum-values-for-ints
+    # Source:
+    # https://stackoverflow.com/questions/7604966/
+    # maximum-and-minimum-values-for-ints
     min_salary = sys.maxsize
 
     for job in jobs_data:
