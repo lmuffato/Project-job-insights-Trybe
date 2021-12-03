@@ -1,19 +1,14 @@
+from src.jobs import read
+
+
+# python sets: https://www.w3schools.com/python/python_sets.asp
+# set methods: https://www.w3schools.com/python/python_sets_methods.asp
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+    job_list = read(path)
+    job_type_set = set()
+    for job in job_list:
+        job_type_set.add(job["job_type"])
+    return job_type_set
 
 
 def filter_by_job_type(jobs, job_type):
