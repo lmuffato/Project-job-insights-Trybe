@@ -23,9 +23,6 @@ def filter_by_job_type(jobs, job_type):
     return list_jobs_type
 
 
-# print(filter_by_job_type(read(path), 'ABA Therapist'))
-
-
 def get_unique_industries(path):
     jobs_list = read(path)
 
@@ -39,21 +36,12 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
+    list_jobs_industry = [
+      job for job in jobs
+      if industry == job['industry']
+    ]
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    return list_jobs_industry
 
 
 def get_max_salary(path):
