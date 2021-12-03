@@ -148,7 +148,8 @@ def get_min_salary(path):
 
     for salary in jobs_list:
 
-        if salary["min_salary"] != "" and salary["min_salary"].isnumeric() is True :
+        if salary["min_salary"] != "" and \
+          salary["min_salary"].isnumeric() is True:
 
             if minimum_salary == 0:
 
