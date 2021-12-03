@@ -45,7 +45,15 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
+    jobs_list = jobs
+
+    filtered_jobs = []
+
+    for job in jobs_list:
+        if job['job_type'] == job_type:
+            filtered_jobs.append(job)
+
+    return filtered_jobs
 
 
 def get_unique_industries(path):
@@ -207,3 +215,4 @@ def filter_by_salary_range(jobs, salary):
 
 # https://docs.python.org/3/tutorial/modules.html
 # https://www.w3schools.com/python/ref_string_isnumeric.asp
+# https://stackoverflow.com/questions/62598856/how-to-fix-certain-line-too-long-errors-in-a-python-file
