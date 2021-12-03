@@ -111,7 +111,20 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    max_salary = 0
+
+    jobs_list = src.jobs.read(path)
+
+    for salary in jobs_list:
+
+        if salary["max_salary"] != "":
+
+            if salary["max_salary"].isnumeric() is True:
+
+                if int(salary["max_salary"]) > max_salary:
+                    max_salary = int(salary["max_salary"])
+
+    return max_salary
 
 
 def get_min_salary(path):
@@ -176,3 +189,4 @@ def filter_by_salary_range(jobs, salary):
     return []
 
 # https://docs.python.org/3/tutorial/modules.html
+# https://www.w3schools.com/python/ref_string_isnumeric.asp
