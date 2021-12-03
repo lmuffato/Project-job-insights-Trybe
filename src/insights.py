@@ -41,7 +41,6 @@ def filter_by_job_type(jobs, job_type):
     list
         List of jobs with provided job_type
     """
-    return []
 
 
 def get_unique_industries(path):
@@ -59,7 +58,15 @@ def get_unique_industries(path):
     list
         List of unique industries
     """
-    return []
+    content = read(path)
+
+    unique_indutries = set()
+
+    for item in content:
+        if item["industry"] != "":
+            unique_indutries.add(item["industry"])
+
+    return unique_indutries
 
 
 def filter_by_industry(jobs, industry):
