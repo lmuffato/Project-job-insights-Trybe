@@ -33,21 +33,18 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    jobs_list = read(path)
+    industries_list = set()
 
-    Must call `read`
+    try:
+        for job in jobs_list:
+            industries_list.add(job["industry"])
+    except NameError:
+        print("Variable 'jobs_list' is not defined")
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    industries_list.discard("")
 
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    return industries_list
 
 
 def filter_by_industry(jobs, industry):
