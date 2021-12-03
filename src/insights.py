@@ -1,5 +1,6 @@
 from src.jobs import read
 
+
 # Requisito 2
 def get_unique_job_types(path):
     dados = read(path)
