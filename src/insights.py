@@ -70,7 +70,7 @@ def matches_salary_range(job, salary):
         or type(job["max_salary"]) is not int
         or job["min_salary"] > job["max_salary"]
     ):
-        raise ValueError("Value Error")
+        raise ValueError("Value Error") # https://pt.stackoverflow.com/questions/127118/python-diferen%C3%A7a-entre-assert-e-raise
     return job["min_salary"] <= salary <= job["max_salary"]
 
 
