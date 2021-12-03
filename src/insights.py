@@ -23,7 +23,8 @@ def get_unique_industries(path):
     industry_types = set()
     job_list = read(path)
     for job in job_list:
-        industry_types.add(job["industry"])
+        if job["industry"] != '' and job["industry"] != 'invalid':
+            industry_types.add(job["industry"])
 
     return industry_types
 
