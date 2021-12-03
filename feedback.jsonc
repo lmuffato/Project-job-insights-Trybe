@@ -1,12 +1,12 @@
 {
     // Coloque seu nome para sabermos de quem foi o comentário =D (opcional)
-    "nome": "",
+    "nome": "Ana Flavia Pereira Ventura",
     // Dê uma nota ao projeto *^* (int de 0 a 10) (obrigatório)
-    "nota": "",
+    "nota": 10,
     // O que você mais gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_positivos": "",
+    "pontos_positivos": "Desafiador, mas me fez aprender muito. Ficou mais fácil pensar lógica em python",
     // O que você menos gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_negativos": "",
+    "pontos_negativos": "não há",
     // Comentário livre sobre o que você achou do projeto (opcional)
-    "comentário": ""
+    "comentário": "Gostei mais do que esperava deste projeto. Agradável surpresa!"
 }
