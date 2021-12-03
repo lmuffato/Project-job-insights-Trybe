@@ -76,45 +76,29 @@ def filter_by_industry(jobs, industry):
     return filtro
 
 
+# Requisito 8
+# Referência 1: https://stackoverflow.com/questions/
+# 10406130/check-if-something-is-not-in-a-list-in-python
+# Referência 2: https://pt.stackoverflow.com/questions/
+# 127118/python-diferen%C3%A7a-entre-assert-e-raise
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
-
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
-
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
-
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    pass
+    if ("min_salary" not in job): raise ValueError("Não está presente")
+    if ("max_salary" not in job): raise ValueError("Não está presente")
+    if (type(job["max_salary"]) != int): raise ValueError("Não é numérico")
+    if (type(job["min_salary"]) != int): raise ValueError("Não é numérico")
+    if (job["min_salary"] > job["max_salary"]): raise ValueError("Min > Max")
+    if (type(salary) != int): raise ValueError("Não é numérico")
+    
+    return (job["min_salary"] <= salary <= job["max_salary"])
 
 
+# Requisito 9
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
+    filtro = []
+    for elemento in jobs:
+        try:
+            if matches_salary_range(elemento, salary): filtro.append(elemento)
+        except ValueError:
+            print("Error")
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    return filtro
