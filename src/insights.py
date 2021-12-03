@@ -29,9 +29,9 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    industries_list = read(path)
+    jobs_list = read(path)
     unique_industries = set(
-        industry["industry"] for industry in industries_list if industry["industry"]
+        job["industry"]for job in jobs_list if job["industry"]
     )
     return unique_industries
 
