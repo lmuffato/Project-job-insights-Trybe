@@ -20,12 +20,12 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    job_types = set()
+    industry_types = set()
     job_list = read(path)
     for job in job_list:
-        job_types.add(job["industry"])
+        industry_types.add(job["industry"])
 
-    return job_types
+    return industry_types
 
 
 def filter_by_industry(jobs, industry):
