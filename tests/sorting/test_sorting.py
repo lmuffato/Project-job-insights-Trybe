@@ -28,3 +28,4 @@ def test_sort_by_criteria():
 
     sort_by(mock_jobs, "max_salary")
     assert mock_jobs == sorted_by_max_salary
+# roda avaliador
