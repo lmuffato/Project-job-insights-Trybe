@@ -69,6 +69,15 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
+    file = jobs.read(path)
+    min_salary = get_max_salary(path)
+
+    for row in file:
+        if row["min_salary"] != "" and row["min_salary"] != "invalid":
+            if int(row["min_salary"]) < min_salary:
+                min_salary = int(row["min_salary"])
+    return min_salary
+
     """Get the minimum salary of all jobs
 
     Must call `read`
