@@ -161,7 +161,14 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    if (type(salary) is not int
+            or "min_salary" not in job
+            or "max_salary" not in job
+            or type(job["min_salary"]) is not int
+            or type(job["max_salary"]) is not int
+            or job["min_salary"] > job["max_salary"]):
+        raise ValueError("wrong data format")
+    return (job["max_salary"] >= salary >= job["min_salary"])
 
 
 def filter_by_salary_range(jobs, salary):
@@ -179,4 +186,6 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
+    df = pd.DataFrame(jobs)
+    print(df)
     return []
