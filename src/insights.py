@@ -1,5 +1,6 @@
 from src.jobs import read
 
+
 def get_unique_job_types(path):
     result = read(path)
     job_types = set()
@@ -31,7 +32,7 @@ def get_unique_industries(path):
     result = read(path)
     industries = set()
     for row in result:
-         if row['industry'] != "":
+        if row['industry'] != "":
             industries.add(row['industry'])
 
     return industries
