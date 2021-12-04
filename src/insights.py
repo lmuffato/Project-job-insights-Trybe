@@ -91,7 +91,7 @@ def filter_by_industry(jobs, industry):
     """
     new_list_jobs = []
     for job in jobs:
-        if job['industry'] != industry:
+        if job['industry'] == industry:
             new_list_jobs.append(job)
 
     return new_list_jobs
@@ -210,4 +210,12 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    new_list = []
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                new_list.append(job)
+        except ValueError:
+            print('Valor de salary vazio ou invalido')
+
+    return new_list
