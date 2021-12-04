@@ -6,5 +6,8 @@ import csv
 def read(path):
     with open(path) as file:
         info_jobs = csv.DictReader(file, delimiter=",", quotechar='"')
+        return [
+            job for job in info_jobs
+        ]
 
-    return info_jobs
+# jobs = read('jobs.csv')
