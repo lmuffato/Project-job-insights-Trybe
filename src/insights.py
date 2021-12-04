@@ -83,7 +83,13 @@ def filter_by_industry(jobs, industry):
     list
         List of jobs with provided industry
     """
-    return []
+    df = pd.DataFrame(jobs)
+    s = list(df.loc[df['industry'] == industry].T.to_dict().items())
+    to_return = []
+    for dir in s:
+        to_return.append(dir[1])
+    print(to_return)
+    return to_return
 
 
 def get_max_salary(path):
