@@ -3,21 +3,11 @@ from functools import lru_cache
 
 @lru_cache
 def read(path):
-    """Reads a file from a given path and returns its contents
-
-    Parameters
-    ----------
-    path : str
-        Full path to file
-
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
     import csv
 
     with open(path) as file:
-        data_jobs = csv.DictReader(file, delimiter=",", quotechar='"')
-        header, *data = data_jobs
-    return data
+        data_jobs = csv.DictReader(file)
+        data_jobs_list = []
+        for data_job in data_jobs:
+            data_jobs_list.append(data_job)
+    return data_jobs_list
