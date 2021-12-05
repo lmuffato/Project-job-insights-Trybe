@@ -10,3 +10,7 @@ def read(path):
         jobs_data_reader = list(csv.DictReader(file))
 
     return jobs_data_reader
+
+
+''' teste = read('jobs.csv')
+print(teste)'''
