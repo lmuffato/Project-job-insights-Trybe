@@ -6,4 +6,4 @@ import csv
 def read(path):
     with open(path) as file:
         reader = csv.DictReader(file, delimiter=",", quotechar='"')
-    return [row for row in reader]
+        return [row for row in reader]
