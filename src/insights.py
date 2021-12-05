@@ -46,18 +46,17 @@ def filter_by_industry(jobs, industry):
     """
     return []
 
+# depois de muitas falhas olhei o PR de Felipe Flores
+
 
 def get_max_salary(path):
-    salaries = read(path)
+    list = read(path)
+    salary = []
+    for job in list:
+        if (job["max_salary"].isnumeric()):
+            salary.append(int(job["max_salary"]))
 
-    result = list(
-        set(unique_salary["max_salary"] for unique_salary in salaries))
-    max_salary = 0
-    only_salary = list(filter(None, result))
-    for salary in only_salary:
-        if int(salary) > max_salary:
-            max_salary = int(salary)
-    return max_salary
+    return max(salary)
 
 
 # a = get_max_salary("src/jobs.csv")
