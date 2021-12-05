@@ -1,5 +1,5 @@
-# from src.jobs import read
-from jobs import read
+from src.jobs import read
+# from jobs import read
 
 
 def get_unique_job_types(path):
@@ -20,7 +20,7 @@ def get_unique_industries(path):
 
     jobs_filtered = set([
         unique_industry['industry'] for unique_industry
-        in jobs if unique_industry != ''
+        in jobs if unique_industry['industry'] != ''
         ])
     return jobs_filtered
 
@@ -141,4 +141,4 @@ def filter_by_salary_range(jobs, salary):
 
 # print(read('src/jobs.csv'))
 # print(get_unique_job_types("src/jobs.csv"))
-print(get_unique_industries("src/jobs.csv"))
+# print(get_unique_industries("src/jobs.csv"))
