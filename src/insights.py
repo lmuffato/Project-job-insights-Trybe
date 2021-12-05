@@ -5,25 +5,18 @@ def get_unique_job_types(path):
     lists = read(path)
     job_types = set(job["job_type"] for job in lists)
     # forma como foi feito o set feita com base no código do Felipe Flores
+    # e com o curso
+    # https://www.udemy.com/share/101rZm3@scTLs4W_HnfHdggDJ233MraWhwQHXw6VtQintOzz0spHZHhTtyjM0slSpZhl0nL8Rg==/
+    #  List Comprehension em Python
     return job_types
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    filtered_jobs = []
+    for job in jobs:
+        if job["job_type"] == job_type:
+            filtered_jobs.append(job)
+    return filtered_jobs
 
 
 def get_unique_industries(path):
@@ -35,21 +28,11 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    filtered_industry = []
+    for job in jobs:
+        if job["industry"] == industry:
+            filtered_industry.append(job)
+    return filtered_industry
 
 
 def get_max_salary(path):
