@@ -4,7 +4,10 @@ from src.jobs import read
 def get_unique_job_types(path):
     job_types = read(path)
 
-    return set([job_type["job_type"] for job_type in job_types])
+    return list(set(job_type["job_type"] for job_type in job_types))
+
+# a = get_unique_job_types("src/jobs.csv")
+# print(a)
 
 
 def filter_by_job_type(jobs, job_type):
@@ -15,21 +18,15 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    industries = read(path)
+    result = list(set(
+        unique_industry["industry"] for unique_industry in industries))
 
-    Must call `read`
+    return list(filter(None, result))
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
 
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+# a = get_unique_industries("src/jobs.csv")
+# print(a)
 
 
 def filter_by_industry(jobs, industry):
@@ -133,3 +130,4 @@ def filter_by_salary_range(jobs, salary):
 # https://stackoverflow.com/questions/20309456/call-a-function-from-another-file
 # https://www.w3schools.com/python/ref_func_list.asp
 # https://www.w3schools.com/python/python_lists_comprehension.asp
+# https://stackoverflow.com/questions/16099694/how-to-remove-empty-string-in-a-list/16099706
