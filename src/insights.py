@@ -83,7 +83,7 @@ def get_min_salary(path):
 def matches_salary_range(job, salary):
     if type(salary) != int:
         raise ValueError("salary isn't a valid integer")
-    if 'min_salary' not in job or 'max_salary' not in job:
+    if "min_salary" not in job or "max_salary" not in job:
         raise ValueError(
             'job["min_salary"] or job["max_salary"] doesn\'t exists'
         )
@@ -96,28 +96,15 @@ def matches_salary_range(job, salary):
             'job["min_salary"]` is greather than `job["max_salary"]'
         )
 
-    return job['min_salary'] <= int(salary) <= job['max_salary']
+    return job["min_salary"] <= int(salary) <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
-
-
-# print(read('src/jobs.csv'))
-# print(get_unique_job_types("src/jobs.csv"))
-# print(get_unique_industries("src/jobs.csv"))
-# print(get_max_salary("src/jobs.csv"))
+    list_jobs = []
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                list_jobs.append(job)
+        except ValueError:
+            print(ValueError)
+    return list_jobs
