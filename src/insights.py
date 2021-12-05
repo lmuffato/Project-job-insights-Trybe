@@ -30,21 +30,10 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    industries = [
+                job_industry for job_industry in jobs if
+                job_industry["industry"] == industry]
+    return industries
 
 # depois de muitas falhas olhei o PR de Felipe Flores
 
