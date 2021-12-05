@@ -105,6 +105,6 @@ def filter_by_salary_range(jobs, salary):
         try:
             if matches_salary_range(job, salary):
                 list_jobs.append(job)
-        except ValueError:
-            print(ValueError)
+        except ValueError as err:
+            print(f'Unexpected {err=}, {type(err)=}')
     return list_jobs
