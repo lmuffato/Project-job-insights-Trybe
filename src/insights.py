@@ -1,19 +1,9 @@
+from src.jobs import read
+
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+    job_types = set(read(path["job_type"]))
+    return [job_type for job_type in job_types]
 
 
 def filter_by_job_type(jobs, job_type):
@@ -148,3 +138,8 @@ def filter_by_salary_range(jobs, salary):
         Jobs whose salary range contains `salary`
     """
     return []
+
+# fontes:
+# https://stackoverflow.com/questions/20309456/call-a-function-from-another-file
+# https://www.w3schools.com/python/ref_func_list.asp
+# https://www.w3schools.com/python/python_lists_comprehension.asp
