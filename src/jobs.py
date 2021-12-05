@@ -9,5 +9,5 @@ def read(path):
         new_file = csv.DictReader(file_jobs)
         for x in new_file:
             data.append(x)
-            
+
     return data
