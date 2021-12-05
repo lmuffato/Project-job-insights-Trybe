@@ -75,21 +75,17 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
+    list_of_jobs = []
+    for job in jobs:
+        try:
+            cond = matches_salary_range(job, salary)
+            if cond:
+                list_of_jobs.append(job)
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
+        except ValueError:
+            print("Value Error")
+    return list_of_jobs
 
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
 
 # fontes:
 # https://stackoverflow.com/questions/20309456/call-a-function-from-another-file
