@@ -57,8 +57,8 @@ def get_min_salary(path):
     list_jobs = read(path)
     list_salaries = []
     for job in list_jobs:
-        if job["max_salary"].isdigit():
-            list_salaries.append(int(job["max_salary"]))
+        if job["min_salary"].isdigit():
+            list_salaries.append(int(job["min_salary"]))
     return min(list_salaries)
 
 
