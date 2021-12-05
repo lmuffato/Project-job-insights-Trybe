@@ -1,8 +1,5 @@
-from functools import lru_cache
-import csv
-
-
-@lru_cache
-def read(path):
-    with open(path) as file:
-        return [csv.DictReader(file)]
+ if(job_list = '')
+    {
+      unique = set(job["job_type"] for job in job_list)
+    return unique
+    }
