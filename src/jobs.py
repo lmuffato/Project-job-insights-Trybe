@@ -16,9 +16,10 @@ def read(path):
     list
         List of rows as dicts
     """
-    data = []
     with open(path) as file:
-        reader = csv.DictReader(file)
-        for row in reader:
+        data = []
+        content = csv.DictReader(file)
+        for row in content:
             data.append(row)
-            return data
+
+    return data
