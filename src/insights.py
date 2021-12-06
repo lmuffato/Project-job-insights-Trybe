@@ -1,150 +1,93 @@
+def get_unique(elements, key):
+    unique = list()
+
+    for element in elements:
+        unique_element = element[key]
+        if unique_element not in unique and unique_element != "":
+            unique.append(unique_element)
+
+    return unique
+
+
+def get_salaries(elements, key):
+    salaries = [
+        int(element[key])
+        for element in elements
+        if element[key] != "" and element[key].isdigit()
+    ]
+
+    return salaries
+
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
+    from src.jobs import read
 
-    Must call `read`
+    jobs = read(path)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    unique_job_types = get_unique(jobs, "job_type")
 
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+    return unique_job_types
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    return [job for job in jobs if job["job_type"] is job_type]
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    from src.jobs import read
 
-    Must call `read`
+    jobs = read(path)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    unique_industries = get_unique(jobs, "industry")
 
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+    return unique_industries
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    return [job for job in jobs if job["industry"] is industry]
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    from src.jobs import read
 
-    Must call `read`
+    salaires = get_salaries(read(path), "max_salary")
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    return max(salaires)
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    from src.jobs import read
 
-    Must call `read`
+    salaires = get_salaries(read(path), "min_salary")
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    return min(salaires)
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    try:
+        max_salary = int(job["max_salary"])
+        min_salary = int(job["min_salary"])
+        salary_int = int(salary)
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
+        if max_salary < min_salary:
+            raise ValueError("max salary must be greather than min salary!")
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
+        return min_salary <= salary_int <= max_salary
 
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    pass
+    except TypeError:
+        raise ValueError("Types must be integer!")
+
+    except KeyError:
+        raise ValueError("max salary and min salary must be filled!")
+
+
+def check_job_salary(job, salary):
+    try:
+        if matches_salary_range(job, salary):
+            return job
+    except ValueError:
+        pass
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    return [job for job in jobs if check_job_salary(job, salary)]
