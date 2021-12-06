@@ -1,5 +1,5 @@
 from functools import lru_cache
-
+import csv
 
 @lru_cache
 def read(path):
@@ -15,4 +15,15 @@ def read(path):
     list
         List of rows as dicts
     """
-    return []
+    result = []
+
+    with open(path) as file:
+        content_reader = csv.reader(file, delimiter=',', quotechar='"')
+        header, *data = content_reader
+        for row in data:
+            job = {}
+            for index, field in enumerate(row):
+                job[header[index]] = field
+            result.append(job)
+
+    return result
