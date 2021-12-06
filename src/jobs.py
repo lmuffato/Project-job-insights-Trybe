@@ -10,4 +10,3 @@ def read(path):
         for job in readed_data:
             data.append(job)
     return data
-    return []
