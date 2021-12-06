@@ -33,7 +33,6 @@ def filter_by_industry(jobs, industry):
 def filter_list(row):
     filter_list_empty = filter(None, (list(set(row))))
     list_salary = [min_salary for min_salary in filter_list_empty]
-    print(list_salary)
     filter_salary_not_string = []
     for line in list_salary:
         if line.isdigit():
@@ -55,9 +54,7 @@ def get_min_salary(path):
         file_reader = csv.DictReader(file, delimiter=',')
         row = [row["min_salary"] for row in file_reader]
         list_salary = filter_list(row)
-        test = int(min(list_salary, key=int))
-        print(test)
-        return test
+        return int(min(list_salary, key=int))
     pass
 
 
