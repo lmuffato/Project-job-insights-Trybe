@@ -3,15 +3,15 @@ from jobs import read
 
 def get_unique_job_types(path):
     data = read(path)
-    all_uniques_types_of_jobs = set()
+    uniques_types_of_jobs = set()
     for job in data:
-        if (job != ''):
-            all_uniques_types_of_jobs.add(job['job_type'])
-    return all_uniques_types_of_jobs
+        if (job['job_type'] != ''):
+            uniques_types_of_jobs.add(job['job_type'])
+    return uniques_types_of_jobs
 
 
-# print(get_unique_job_types('jobs.csv')) # Teste manual
-# python3 -m pytest tests/test_insights.py # Teste do avaliador
+# print(get_unique_job_types('jobs.csv'))   # Teste manual
+# python3 -m pytest tests/test_insights.py   # Teste do avaliador
 
 
 def filter_by_job_type(jobs, job_type):
@@ -33,21 +33,16 @@ def filter_by_job_type(jobs, job_type):
 
 
 def get_unique_industries(path):
-    """Checks all different industries and returns a list of them
+    data = read(path)
+    unique_industries = set()
+    for industry in data:
+        if (industry['industry'] != ''):
+            unique_industries.add(industry['industry'])
+    return unique_industries
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    list
-        List of unique industries
-    """
-    return []
+# print(get_unique_industries('jobs.csv'))  # Teste manual
+# python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
 
 def filter_by_industry(jobs, industry):
