@@ -101,18 +101,19 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
+    filtered_by_salary_list = []
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                filtered_by_salary_list.append(job)
+        except ValueError:
+            ("Value Error custom message")
+    return filtered_by_salary_list
 
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+
+# https://www.w3schools.com/python/python_try_except.asp
+# The try block lets you test a block of code for errors.
+# The except block lets you handle the error.
+# The finally block lets you execute code,
+# regardless of the result of the try- and except blocks
