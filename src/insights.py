@@ -60,7 +60,7 @@ def get_unique_industries(path):
     """
     jobs = read(path)
     industries = set(
-        int(job["industry"]) for job in jobs if job["industry"]
+        job["industry"] for job in jobs if job["industry"]
     )
     return industries
 
@@ -124,7 +124,7 @@ def get_min_salary(path):
     """
     jobs = read(path)
     salaries = set(
-        job["min_salary"] for job in jobs if job["min_salary"].isnumeric()
+        int(job["min_salary"]) for job in jobs if job["min_salary"].isnumeric()
     )
     list_salaries = list(salaries)
     min_salary = min(list_salaries)
