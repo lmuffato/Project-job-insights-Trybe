@@ -1,8 +1,6 @@
 from functools import lru_cache
 import csv
-import pathlib as pl
 
-# print(csv.list_dialects())
 
 @lru_cache
 def read(path):
