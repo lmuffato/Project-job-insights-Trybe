@@ -10,11 +10,6 @@ def get_unique_job_types(path):
     return category
 
 
-def filter_by_job_type(jobs, job_type):
-
-    return []
-
-
 def get_unique_industries(path):
     data = read(path)
     industry = set()
@@ -24,14 +19,26 @@ def get_unique_industries(path):
     return industry
 
 
-def filter_by_industry(jobs, industry):
+def get_max_salary(path):
+    data = read(path)
+    salary = set()
+    for index in data:
+        if index["max_salary"] != "":
+            try:
+                salary.add(int(index["max_salary"]))
+            except ValueError:
+                print("deu ruim")
+    return max(salary)
+
+
+def filter_by_job_type(jobs, job_type):
 
     return []
 
 
-def get_max_salary(path):
+def filter_by_industry(jobs, industry):
 
-    pass
+    return []
 
 
 def get_min_salary(path):
