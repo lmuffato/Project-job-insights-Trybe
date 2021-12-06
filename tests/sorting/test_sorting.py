@@ -1,4 +1,4 @@
-# import pytest
+import pytest
 
 from src.sorting import sort_by
 
