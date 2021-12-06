@@ -95,6 +95,11 @@ def matches_salary_range(job, salary):
     )  # retora TRUE or FALSE
 
 
+# https://www.w3schools.com/python/ref_keyword_raise.asp
+# The raise keyword is used to raise an exception.
+# You can define what kind of error to raise, and the text to print to the user
+
+
 def filter_by_salary_range(jobs, salary):
     """Filters a list of jobs by salary range
 
