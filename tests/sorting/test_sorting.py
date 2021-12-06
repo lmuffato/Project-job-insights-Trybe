@@ -54,7 +54,7 @@ def test_sort_by_criteria():
         assert sort_by(criteria_list, "wrong_string")
 
     with pytest.raises(ValueError):
-        sort_by(criteria_list, "")
+        assert sort_by(criteria_list, "")
 
     with pytest.raises(ValueError):
-        sort_by(criteria_list, None)
+        assert sort_by(criteria_list, None)
