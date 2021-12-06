@@ -75,6 +75,7 @@ def matches_salary_range(job, salary):
     return job["min_salary"] <= salary <= job["max_salary"]
 # https://github.com/tryber/sd-010-a-project-job-insights/pull/16/files
 
+
 def filter_by_salary_range(jobs, salary):
     arrJobs = []
     for job in jobs:
