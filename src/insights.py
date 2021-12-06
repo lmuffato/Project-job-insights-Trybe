@@ -1,4 +1,4 @@
-from jobs import read
+from .jobs import read
 
 
 def get_unique_job_types(path):
@@ -14,26 +14,13 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
+    filtered = set()
 
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-
-    filtered = []
-
-    for job in jobs:
-        if (job == job_type):
-            filtered.append(job)
+    for row in jobs:
+        for job in row["job_type"]:
+            if (row["job_type"] == job_type):
+                filtered.add(job)
 
     return filtered
 
@@ -89,7 +76,9 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    list_data = read(path)
+
+    return max(list_data)
 
 
 def get_min_salary(path):
