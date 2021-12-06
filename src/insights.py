@@ -33,6 +33,7 @@ def filter_by_industry(jobs, industry):
 def filter_list(row):
     filter_list_empty = filter(None, (list(set(row))))
     list_salary = [min_salary for min_salary in filter_list_empty]
+    print(list_salary)
     filter_salary_not_string = []
     for line in list_salary:
         if line.isdigit():
@@ -54,34 +55,26 @@ def get_min_salary(path):
         file_reader = csv.DictReader(file, delimiter=',')
         row = [row["min_salary"] for row in file_reader]
         list_salary = filter_list(row)
-        return int(min(list_salary, key=int))
+        test = int(min(list_salary, key=int))
+        print(test)
+        return test
     pass
 
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    if 'max_salary' not in job.keys() or 'min_salary' not in job.keys():
+        raise ValueError("some key does not exist")
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
+    max_salary = type(job['max_salary']) is not int
+    min_salary = type(job['max_salary']) is not int
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
-
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    pass
+    if min_salary or max_salary:
+        raise ValueError("aren't valid integers")
+    elif job['min_salary'] > job['max_salary']:
+        raise ValueError("is greather than `job['max_salary']")
+    elif type(salary) is not int:
+        raise ValueError("`salary` isn't a valid integer")
+    return job['min_salary'] <= salary <= job['max_salary']
 
 
 def filter_by_salary_range(jobs, salary):
