@@ -9,7 +9,7 @@ jobs_mock = [
     },
     {
         "job_title": "test job 2",
-        "min_salary": 4000,
+        "min_salary": 0,
         "max_salary": 7000,
         "date_posted": "2021-07-01",
     },
@@ -29,31 +29,17 @@ jobs_mock = [
         "job_title": "test job 5",
         "min_salary": 8000,
         "max_salary": 9500,
-        "date_posted": "2020-10-10",
+        "date_posted": "1995-10-10",
     },
 ]
 
-ordered_by_date = [
-    jobs_mock[1], jobs_mock[4], jobs_mock[0], jobs_mock[3], jobs_mock[2]
-]
-
-ordered_by_min_salary = [
-    jobs_mock[0], jobs_mock[3], jobs_mock[1], jobs_mock[2], jobs_mock[4]
-]
-
-ordered_by_max_salary = [
-    jobs_mock[4], jobs_mock[2], jobs_mock[1], jobs_mock[3], jobs_mock[0]
-]
-
-criteria = ["date_posted", "max_salary", "min_salary"]
-
 
 def test_sort_by_criteria():
-    sort_by(jobs_mock, criteria[0])
-    assert jobs_mock == ordered_by_date
+    sort_by(jobs_mock, "min_salary")
+    assert jobs_mock[0]["min_salary"] == 0
 
-    sort_by(jobs_mock, criteria[1])
-    assert jobs_mock == ordered_by_max_salary
+    sort_by(jobs_mock, "max_salary")
+    assert jobs_mock[0]["max_salary"] == 9500
 
-    sort_by(jobs_mock, criteria[2])
-    assert jobs_mock == ordered_by_min_salary
+    sort_by(jobs_mock, "date_posted")
+    assert jobs_mock[0]["date_posted"] == "2021-07-01"
