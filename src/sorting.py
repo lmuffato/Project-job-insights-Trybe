@@ -66,20 +66,6 @@ def date_posted_key(job):
 
 
 def sort_by(jobs, criteria):
-    """
-    Sorts jobs by a given criteria, in-place.
-
-    Sorting must be descending, except for `min_salary` criteria.
-    Jobs missing the criteria should end up last.
-    Invalid criteria should raise ValueError.
-
-    Parameters
-    ----------
-    jobs : list
-        List of dicts representing the jobs.
-    criteria : str
-        One of `min_salary`, `max_salary` or `date_posted`.
-    """
     criteria_keys = {
         "date_posted": date_posted_key,
         "max_salary": max_salary_key,
