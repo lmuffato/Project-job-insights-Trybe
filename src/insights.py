@@ -31,6 +31,18 @@ def get_max_salary(path):
     return max(salary)
 
 
+def get_min_salary(path):
+    data = read(path)
+    salary = set()
+    for index in data:
+        if index["min_salary"] != "":
+            try:
+                salary.add(int(index["min_salary"]))
+            except ValueError:
+                print("deu ruim")
+    return min(salary)
+
+
 def filter_by_job_type(jobs, job_type):
 
     return []
@@ -39,11 +51,6 @@ def filter_by_job_type(jobs, job_type):
 def filter_by_industry(jobs, industry):
 
     return []
-
-
-def get_min_salary(path):
-
-    pass
 
 
 def matches_salary_range(job, salary):
