@@ -1,4 +1,5 @@
 from src.jobs import read
+import numpy as np
 
 
 def get_unique_job_types(path):
@@ -94,7 +95,12 @@ def get_max_salary(path):
     int
         The maximum salary paid out of all job opportunities
     """
-    pass
+    jobs = read(path)
+    salaries = set(
+        job["max_salary"] for job in jobs if job["industry"].isnumeric()
+    )
+    max_salary = np.max(salaries)
+    return max_salary
 
 
 def get_min_salary(path):
