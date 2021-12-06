@@ -74,4 +74,4 @@ def filter_by_salary_range(jobs, salary):
                 filtered_jobs.append(job)
         except ValueError:
             ("Value Error: Invalid")
-        return filtered_jobs
+    return filtered_jobs
