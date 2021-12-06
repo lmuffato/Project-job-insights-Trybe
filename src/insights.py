@@ -46,21 +46,20 @@ def get_unique_industries(path):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
+    filtered_industries = []
+    for indus in jobs:
+        if indus['industry'] == industry:
+            filtered_industries.append(indus)
+    return filtered_industries
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
 
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+# industries_types = [
+#         {"id": 1, "industry": "agriculture"},
+#         {"id": 2, "industry": "agriculture"},
+#         {"id": 3, "industry": "solar energy"},
+# ]
+# print(filter_by_industry(industries_types, 'agriculture'))  # Teste manual
+# python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
 
 def get_max_salary(path):
@@ -88,31 +87,34 @@ def get_min_salary(path):
 # print(get_min_salary('jobs.csv'))  # Teste manual
 # python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
+def verify_valid_inputs_salary_range(job, salary):
+    if type(salary) != int:
+        raise ValueError('salary is not an integer')
+
+    for value in job:
+        if ('min_salary' not in value or 'max_salary' not in value):
+            raise ValueError("min salary or max salary does not exist")
+
+        if (type(value['min_salary']) != int or type(
+          value['max_salary']) != int):
+            raise ValueError('min salary or max salary is not an integer')
+
 
 def matches_salary_range(job, salary):
-    """Checks if a given salary is in the salary range of a given job
+    verify_valid_inputs_salary_range(job, salary)
+    for value in job:
+        if value['min_salary'] <= salary <= value['max_salary']:
+            return True
+    return False
 
-    Parameters
-    ----------
-    job : dict
-        The job with `min_salary` and `max_salary` keys
-    salary : int
-        The salary to check if matches with salary range of the job
 
-    Returns
-    -------
-    bool
-        True if the salary is in the salary range of the job, False otherwise
-
-    Raises
-    ------
-    ValueError
-        If `job["min_salary"]` or `job["max_salary"]` doesn't exists
-        If `job["min_salary"]` or `job["max_salary"]` aren't valid integers
-        If `job["min_salary"]` is greather than `job["max_salary"]`
-        If `salary` isn't a valid integer
-    """
-    pass
+jobs_salaries = [
+    {'max_salary': 500, 'min_salary': 0},
+    {'max_salary': 1500, 'min_salary': 501},
+    {'max_salary': 10000, 'min_salary': 1600},
+]
+print(matches_salary_range(jobs_salaries, 15000))  # Teste manual
+# python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
 
 def filter_by_salary_range(jobs, salary):
