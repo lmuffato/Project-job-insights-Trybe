@@ -41,11 +41,11 @@ criteria_list_sorted_by_date_posted_output = [
 
 
 def test_sort_by_criteria():
-    # sort_by(criteria_list, "min_salary")
-    # assert criteria_list_sorted_by_min_salary_output
+    sort_by(criteria_list, "min_salary")
+    assert criteria_list_sorted_by_min_salary_output
 
-    # sort_by(criteria_list, "max_salary")
-    # assert criteria_list_sorted_by_max_salary_output
+    sort_by(criteria_list, "max_salary")
+    assert criteria_list_sorted_by_max_salary_output
 
     sort_by(criteria_list, "date_posted")
     assert criteria_list_sorted_by_date_posted_output
