@@ -64,30 +64,27 @@ def matches_salary_range(job, salary):
     if type(salary) != int:
         raise ValueError("`salary` isn't a valid integer")
     elif "min_salary" not in job or "max_salary" not in job:
-        raise ValueError('`job["min_salary"]` or job["max_salary"]` doesn\'t exists')
+        raise ValueError(
+            '`job["min_salary"]` or job["max_salary"]` doesn\'t exists')
     elif type(job["min_salary"]) != int or type(job["max_salary"]) != int:
-        raise ValueError('If `job["min_salary"]` or `job["max_salary"]` aren\'t valid integers')
+        raise ValueError(
+            'If `job["min_salary"]` or `job["max_salary"]` aren\'t valid integers')
     elif job["min_salary"] > job["max_salary"]:
-        raise ValueError('`job["min_salary"]` is greather than `job["max_salary"]`')
+        raise ValueError(
+            '`job["min_salary"]` is greather than `job["max_salary"]`')
     elif job["min_salary"] <= salary <= job["max_salary"]:
         return True
     else:
         return False
 
 
+def validate_job(job, salary):
+    try:
+        return matches_salary_range(job, salary)
+    except ValueError:
+        return False
+
+
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs: list
-        The jobs to be filtered
-    salary: int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    filtered = filter(lambda job: validate_job(job, salary), jobs)
+    return list(filtered)
