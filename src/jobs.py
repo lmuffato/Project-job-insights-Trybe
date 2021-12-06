@@ -13,3 +13,4 @@ def read(path):
 
 
 # print(read('jobs.csv')) # Teste da função
+# python3 -m pytest tests/test_jobs.py
