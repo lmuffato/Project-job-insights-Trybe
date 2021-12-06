@@ -81,7 +81,7 @@ def filter_by_industry(jobs, industry):
         List of jobs with provided industry
     """
     filtered_industries = set(
-        jobs for job in jobs if job["industry"] == industry
+        job for job in jobs if job["industry"] == industry
     )
     list_filtered_jobs = list(filtered_industries)
     return list_filtered_jobs
