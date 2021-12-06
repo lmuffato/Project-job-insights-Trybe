@@ -5,7 +5,7 @@ def get_unique_job_types(path):
     data = read(path)
     categorias = set()
     for elemento in data:
-        if elemento["job_type"] !="":
+        if elemento["job_type"] != "":
             categorias.add(elemento["job_type"])
     return categorias
 
@@ -22,7 +22,7 @@ def get_unique_industries(path):
     data = read(path)
     industrias = set()
     for elemento in data:
-        if elemento["industry"] !="":
+        if elemento["industry"] != "":
             industrias.add(elemento["industry"])
     return industrias
 
@@ -47,6 +47,7 @@ def get_max_salary(path):
 
     return max(salarios)
 
+
 def get_min_salary(path):
     data = read(path)
     salarios = set()
@@ -56,7 +57,7 @@ def get_min_salary(path):
                 salarios.add(int(elemento["min_salary"]))
             except ValueError:
                 print("Pane no sistema")
-                
+
     return min(salarios)
 
 
