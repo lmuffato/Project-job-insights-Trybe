@@ -201,7 +201,15 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    pass
+    if ("min_salary" not in job
+       or type(job["min_salary"]) != int
+       or "max_salary" not in job
+       or type(job["max_salary"]) != int
+       or int(job["min_salary"]) > int(job["max_salary"])
+       or type(salary) != int):
+        raise ValueError("Error about data values")
+
+    return int(job["min_salary"]) <= salary <= int(job["max_salary"])
 
 
 def filter_by_salary_range(jobs, salary):
@@ -224,3 +232,4 @@ def filter_by_salary_range(jobs, salary):
 # https://docs.python.org/3/tutorial/modules.html
 # https://www.w3schools.com/python/ref_string_isnumeric.asp
 # https://stackoverflow.com/questions/62598856/how-to-fix-certain-line-too-long-errors-in-a-python-file
+# https://www.educative.io/edpresso/how-to-check-if-a-key-exists-in-a-python-dictionary
