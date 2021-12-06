@@ -227,7 +227,17 @@ def filter_by_salary_range(jobs, salary):
     list
         Jobs whose salary range contains `salary`
     """
-    return []
+    filtered_jobs_list = []
+
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary) is True:
+                filtered_jobs_list.append(job)
+        except ValueError:
+            pass
+            # Utilizei o pass aqui pois o erro não precisava ser tratado ou mostrado no requisito!
+
+    return filtered_jobs_list
 
 # https://docs.python.org/3/tutorial/modules.html
 # https://www.w3schools.com/python/ref_string_isnumeric.asp
