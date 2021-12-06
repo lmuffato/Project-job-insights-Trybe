@@ -35,21 +35,8 @@ def filter_by_job_type(jobs, job_type):
 
 
 def filter_by_industry(jobs, industry):
-    """Filters a list of jobs by industry
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    return []
+    jobs_industry = [job for job in jobs if job["industry"] == industry]
+    return jobs_industry
 
 
 def matches_salary_range(job, salary):
