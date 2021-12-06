@@ -1,19 +1,20 @@
+from src.jobs import read
+
+
 def get_unique_job_types(path):
-    """Checks all different job types and returns a list of them
+    read_jobs = read(path)
+    job_types_set = set()
 
-    Must call `read`
+    for jobs_dict in read_jobs:
+        if jobs_dict["job_type"] != "":
+            job_types_set.add(jobs_dict["job_type"])
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    # print(job_types_set)
+    return job_types_set
 
-    Returns
-    -------
-    list
-        List of unique job types
-    """
-    return []
+
+# Set items are unordered, unchangeable, and do not allow duplicate values.
+# https://www.w3schools.com/python/python_sets.asp
 
 
 def filter_by_job_type(jobs, job_type):
