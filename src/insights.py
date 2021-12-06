@@ -17,7 +17,7 @@ def get_unique_job_types(path):
         List of unique job types
     """
     data = read(path)
-    job_types = [job['job_type'] for job in data]
+    job_types = [job['job_type'] for job in data if job['job_type'] != '']
     unique_job_types = set(job_types)
 
     return unique_job_types
