@@ -5,9 +5,12 @@ from src.sorting import sort_by
 # @pytest.fixture
 # def criteria_list():
 #     data = [
-#             {"min_salary": "3500", "max_salary": "6000", "date_posted": "2021-12-03"},
-#             {"min_salary": "3000", "max_salary": "7000", "date_posted": "2021-12-04"},
-#             {"min_salary": "8000", "max_salary": "11000", "date_posted": "2021-12-01"},
+#             {"min_salary": "3500", "max_salary": "6000",
+#  "date_posted": "2021-12-03"},
+#             {"min_salary": "3000", "max_salary": "7000"
+# , "date_posted": "2021-12-04"},
+#             {"min_salary": "8000", "max_salary": "11000"
+# , "date_posted": "2021-12-01"},
 #     ]
 
 
