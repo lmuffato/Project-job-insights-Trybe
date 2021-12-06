@@ -51,7 +51,7 @@ def test_sort_by_criteria():
     assert criteria_list_sorted_by_date_posted_output
 
     with pytest.raises(ValueError):
-        sort_by(criteria_list, "any element")
+        assert sort_by(criteria_list, "any element")
 
     # with pytest.raises(ValueError, match="invalid sorting criteria: " ""):
     #     sort_by(criteria_list, "")
