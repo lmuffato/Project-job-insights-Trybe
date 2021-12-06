@@ -52,8 +52,11 @@ def filter_by_job_type(jobs, job_type):
 
 
 def filter_by_industry(jobs, industry):
-
-    return []
+    filter_industry = []
+    for index in jobs:
+        if index["industry"] == industry:
+            filter_industry.append(index)
+    return filter_industry
 
 
 def matches_salary_range(job, salary):
