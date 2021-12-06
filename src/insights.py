@@ -5,7 +5,7 @@ def get_unique_job_types(path):
     data = read(path)
     uniques_types_of_jobs = set()
     for job in data:
-        if (job['job_type'] != ''):
+        if job['job_type'] != '':
             uniques_types_of_jobs.add(job['job_type'])
     return uniques_types_of_jobs
 
@@ -15,28 +15,28 @@ def get_unique_job_types(path):
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
+    filtered_job = []
+    for job in jobs:
+        if job['job_type'] == job_type:
+            filtered_job.append(job)
+    return filtered_job
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
 
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+# job_types = [
+#         {"id": 1, "job_type": "PART_TIME"},
+#         {"id": 4, "job_type": "OTHER"},
+#         {"id": 5, "job_type": "FULL_TIME"},
+#         {"id": 6, "job_type": "FULL_TIME"},
+# ]
+# print(filter_by_job_type(job_types, 'FULL_TIME'))   # Teste manual
+# python3 -m pytest tests/test_insights.py   # Teste do avaliador
 
 
 def get_unique_industries(path):
     data = read(path)
     unique_industries = set()
     for industry in data:
-        if (industry['industry'] != ''):
+        if industry['industry'] != '':
             unique_industries.add(industry['industry'])
     return unique_industries
 
@@ -64,39 +64,29 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    data = read(path)
+    max_salaries = set()
+    for salary in data:
+        if salary['max_salary'] != '':
+            max_salaries.add(int(salary['max_salary']))
+    return max(max_salaries)
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+# print(get_max_salary('jobs.csv'))  # Teste manual
+# python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
 
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    data = read(path)
+    min_salaries = set()
+    for salary in data:
+        if salary['max_salary'] != '':
+            min_salaries.add(int(salary['min_salary']))
+    return min(min_salaries)
 
-    Must call `read`
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+# print(get_min_salary('jobs.csv'))  # Teste manual
+# python3 -m pytest tests/test_insights.py  # Teste do avaliador
 
 
 def matches_salary_range(job, salary):
