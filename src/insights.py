@@ -29,9 +29,10 @@ def get_unique_industries(path):
     list_data = read(path)
 
     industries = set()
-    for row in list_data:
-        for industry in row["industry"].split(","):
-            industries.add(industry)
+
+    for job in list_data:
+        if job["industry"] != "":
+            industries.add(job["industry"])
 
     return industries
 
