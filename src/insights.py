@@ -1,12 +1,12 @@
 from src.jobs import read
 
+
 def get_unique_job_types(path):
-    data =  read(path)
+    data = read(path)
     categories = set()
     for job in data:
-        if job["job_type"] !== "":
+        if job["job_type"] != "":
             categories.add(job["job_type"])
-
     return categories
 
 
@@ -22,8 +22,8 @@ def get_unique_industries(path):
     data = read(path)
     industries = set()
     for industry in data:
-        if industry["industry"] !== "":
-            industries.add(industry)["industry"]
+        if industry["industry"] != "":
+            industries.add(industry["industry"])
     return industries
 
 
@@ -39,7 +39,7 @@ def get_max_salary(path):
     data = read(path)
     salaries = set()
     for salary in data:
-        if salary["max_salary"] !== "":
+        if salary["max_salary"] != "":
             try:
                 salaries.add(int(salary["max_salary"]))
             except ValueError:
@@ -60,7 +60,7 @@ def get_min_salary(path):
 
 
 def matches_salary_range(job, salary):
-     if (
+    if (
         type(salary) != int
         or "min_salary" not in job
         or "max_salary" not in job
@@ -69,7 +69,7 @@ def matches_salary_range(job, salary):
         or job["min_salary"] > job["max_salary"]
     ):
         raise ValueError("Value Error")
-    return job["min_salary"] <= salary <= job["max_salary"]     
+    return job["min_salary"] <= salary <= job["max_salary"]
 
 
 def filter_by_salary_range(jobs, salary):
