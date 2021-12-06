@@ -73,5 +73,12 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
+    filter = []
+    for index in jobs:
+        try:
+            if matches_salary_range(index, salary):
+                filter.append(index)
+        except ValueError:
+            print("Deu ruim")
 
-    return []
+    return filter
