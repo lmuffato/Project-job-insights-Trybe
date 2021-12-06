@@ -53,8 +53,8 @@ def test_sort_by_criteria():
     with pytest.raises(ValueError):
         assert sort_by(criteria_list, "any element")
 
-    # with pytest.raises(ValueError, match="invalid sorting criteria: " ""):
-    #     sort_by(criteria_list, "")
+    with pytest.raises(ValueError):
+        sort_by(criteria_list, "")
 
-    # with pytest.raises(ValueError, match="invalid sorting criteria: None"):
-    #     sort_by(criteria_list, None)
+    with pytest.raises(ValueError):
+        sort_by(criteria_list, None)
