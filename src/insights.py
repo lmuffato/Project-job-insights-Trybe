@@ -18,8 +18,8 @@ def filter_by_job_type(jobs, job_type):
     filtered_jobs = []
 
     for row in jobs:
-       if row["job_type"] == job_type:
-           filtered_jobs.append(row)
+        if row["job_type"] == job_type:
+            filtered_jobs.append(row)
 
     return filtered_jobs
 
