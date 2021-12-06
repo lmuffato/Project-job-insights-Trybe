@@ -186,9 +186,9 @@ def filter_by_salary_range(jobs, salary):
     """
     filtered_salary = list()
     for job in jobs:
-            if matches_salary_range(job, salary):
-                filtered_salary.append(job)
-            else 
-                raise ValueError("Error: invalid data")
+        if matches_salary_range(job, salary):
+            filtered_salary.append(job)
+        else:
+            raise ValueError("Error: invalid data")
 
     return filtered_salary
