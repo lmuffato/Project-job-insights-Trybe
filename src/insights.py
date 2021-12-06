@@ -235,7 +235,8 @@ def filter_by_salary_range(jobs, salary):
                 filtered_jobs_list.append(job)
         except ValueError:
             pass
-            # Utilizei o pass aqui pois o erro não precisava ser tratado ou mostrado no requisito!
+            # Utilizei o pass aqui pois o erro não
+            # precisava ser tratado ou mostrado no requisito!
 
     return filtered_jobs_list
 
