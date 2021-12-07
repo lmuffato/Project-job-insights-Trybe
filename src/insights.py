@@ -1,5 +1,6 @@
 from src.jobs import read
 
+
 def get_unique_job_types(path):
     data = read(path)
     job_types = set()
@@ -93,7 +94,7 @@ def get_max_salary(path):
     salaries = set()
     for i in data:
         if i["max_salary"] != "":
-            try:  
+            try:
                 salaries.add(int(i["max_salary"]))
             except ValueError:
                 print("formato de dado inadequado")
