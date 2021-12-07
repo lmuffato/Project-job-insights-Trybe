@@ -112,6 +112,16 @@ def get_max_salary(path):
 
 
 def get_min_salary(path):
+    data = read(path)
+    salaries = set()
+    for i in data:
+        if i["min_salary"] != "":
+            try:
+                salaries.add(int(i["min_salary"]))
+            except ValueError:
+                print("formato de dado inadequado")
+    small_salary = min(salaries)
+    return small_salary
     """Get the minimum salary of all jobs
 
     Must call `read`
