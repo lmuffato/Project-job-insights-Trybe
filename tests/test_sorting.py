@@ -25,7 +25,7 @@ mock_input = [
 
 
 result_sorted_by_max_salary = [
-    mock_input[0], mock_input[1], mock_input[2], mock_input[3]
+    mock_input[0], mock_input[1], mock_input[2], mock_input[3],
     # {
     #     "max_salary": 120000,
     #     "min_salary": 80001,
@@ -49,7 +49,7 @@ result_sorted_by_max_salary = [
 ]
 
 result_sorted_by_min_salary = [
-    mock_input[3], mock_input[2], mock_input[1], mock_input[0]
+    mock_input[3], mock_input[2], mock_input[1], mock_input[0],
     # {
     #     "max_salary": 10000,
     #     "min_salary": 3000,
