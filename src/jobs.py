@@ -12,5 +12,6 @@ def read(path):
         return new_data
 
 
-# print(read('jobs.csv')) # Teste da função
+# print(read('jobs.csv')) # Teste manual
 # python3 -m pytest tests/test_jobs.py
+# python3 jobs.py
