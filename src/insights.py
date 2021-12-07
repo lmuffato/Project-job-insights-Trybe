@@ -65,19 +65,19 @@ def get_min_salary(path):
     salaries = list(
         set(
             [
-                unique_salary["min_salary"]
+                int(unique_salary["min_salary"])
                 for unique_salary in jobs
-                if unique_salary["min_salary"] != ""
+                if unique_salary["min_salary"].isdigit()
             ]
         )
     )
-
-    min_salary = int(salaries[0])
-    for salary in salaries:
-        if salary.isdigit():
-            if int(salary) < min_salary:
-                min_salary = int(salary)
-    return min_salary
+    return min(salaries)
+    # min_salary = int(salaries[0])
+    # for salary in salaries:
+    #     if salary.isdigit():
+    #         if int(salary) < min_salary:
+    #             min_salary = int(salary)
+    # return min_salary
 
 
 def matches_salary_range(job, salary):
