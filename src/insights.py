@@ -17,9 +17,9 @@ def filter_by_job_type(jobs, job_type):
 
     filtered_jobs = []
 
-    for row in jobs:
-        if row["job_type"] == job_type:
-            filtered_jobs.append(row)
+    for job in jobs:
+        if job["job_type"] == job_type:
+            filtered_jobs.append(job)
 
     return filtered_jobs
 
@@ -74,19 +74,19 @@ def get_max_salary(path):
 
 def get_min_salary(path):
 
+    # Refatorado com ajudado colega André Barroso
+
     list_data = read(path)
 
-    lower_salary = 99999999
+    lower_salary = list(
+        set(
+            int(job["min_salary"])
+            for job in list_data
+            if job["min_salary"] != "" and job["min_salary"] != "invalid"
+        )
+    )
 
-    for job in list_data:
-        if (
-            job["min_salary"] != ""
-            and job["min_salary"] != "invalid"
-            and int(job["min_salary"]) < lower_salary
-        ):
-            lower_salary = int(job["min_salary"])
-
-    return lower_salary
+    return min(lower_salary)
 
 
 def matches_salary_range(job, salary):
@@ -112,6 +112,7 @@ def matches_salary_range(job, salary):
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
+
     pass
 
 
