@@ -47,7 +47,7 @@ def get_max_salary(path):
             try:
                 max_sal.add(int(row["max_salary"]))
             except ValueError:
-                print("Error message")
+                print("Invalid data")
     return max(max_sal)
 
 
@@ -59,7 +59,7 @@ def get_min_salary(path):
             try:
                 min_sal.add(int(row["min_salary"]))
             except ValueError:
-                print("Error message")
+                print("Invalid data")
     return min(min_sal)
 
 
@@ -75,18 +75,12 @@ def matches_salary_range(job, salary):
 
 
 def filter_by_salary_range(jobs, salary):
-    """Filters a list of jobs by salary range
+    filtered_salary = []
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                filtered_salary.append(job)
+        except ValueError:
+            print("Invalid data")
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    return []
+    return filtered_salary
