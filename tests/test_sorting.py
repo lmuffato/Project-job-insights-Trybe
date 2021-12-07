@@ -79,3 +79,5 @@ def test_sort_by_criteria():
 
     sort_by(mock_input, "min_salary")
     assert mock_input == result_sorted_by_min_salary
+
+# Testando o evaluator
