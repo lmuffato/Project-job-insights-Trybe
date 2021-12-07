@@ -1,7 +1,5 @@
 from src import jobs
 
-# import jobs
-
 # Req 2 - encurtador.com.br/tIKSW
 
 
@@ -31,6 +29,7 @@ def filter_by_job_type(jobs, job_type):
     return []
 
 
+# Req 3
 def get_unique_industries(path):
     data = jobs.read(path)
     industries = set()
@@ -59,21 +58,12 @@ def filter_by_industry(jobs, industry):
 
 
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
-
-    Must call `read`
-
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    data = jobs.read(path)
+    max_salary = []
+    for salary in data:
+        if salary["max_salary"].isnumeric():
+            max_salary.append(int(salary("max_salary")))
+    return max_salary
 
 
 def get_min_salary(path):
