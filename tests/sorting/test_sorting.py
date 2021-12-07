@@ -23,6 +23,7 @@ mock_jobs = [
 sorted_by_min_salary = [mock_jobs[2], mock_jobs[1], mock_jobs[0]]
 sorted_by_max_salary = [mock_jobs[0], mock_jobs[1], mock_jobs[2]]
 
+
 def test_sort_by_criteria():
     sort_by(mock_jobs, "min_salary")
     assert mock_jobs == sorted_by_min_salary
