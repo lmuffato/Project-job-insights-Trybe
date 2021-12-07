@@ -70,7 +70,7 @@ def matches_salary_range(job, salary):
     if (type(job['min_salary']) != int or type(job['max_salary']) != int):
         raise ValueError('min salary or max salary is not an integer')
 
-    if (job["min_salary"] > job["max_salary"]):
+    if (job['min_salary'] > job['max_salary']):
         raise ValueError('The min salary cannot be higher than the max salary')
 
     return job['min_salary'] <= salary <= job['max_salary']
