@@ -11,7 +11,13 @@ from .insights import (
     get_min_salary,
     get_max_salary,
 )
-from .more_insights import slice_jobs, get_int_from_args, build_jobs_urls
+
+from .more_insights import (
+    slice_jobs,
+    get_int_from_args,
+    build_jobs_urls,
+    get_job
+)
 
 bp = Blueprint("client", __name__, template_folder="templates")
 
@@ -21,6 +27,15 @@ def index():
     with open("README.md", encoding="UTF-8") as file:
         md = markdown(file.read())
     return render_template("index.jinja2", md=md)
+
+
+@bp.route("/job/<index>")  # A função deve ser decorada com a rota /job/<index>
+def job(index):  # A função deve receber um parâmetro index
+    job_list = read("src/jobs.csv")  # A função deve chamar a read
+    job_index = get_job(job_list, index)  # A função deve chamar a get_job
+    return render_template("job.jinja2", job=job_index)
+    # A função deve renderizar o template job.jinja2, passando um parâmetro
+    # job contendo o job retornado pela get_job
 
 
 @bp.route("/jobs")
