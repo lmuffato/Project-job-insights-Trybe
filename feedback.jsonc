@@ -2,11 +2,11 @@
     // Coloque seu nome para sabermos de quem foi o comentário =D (opcional)
     "nome": "Lucas Mire Muffato",
     // Dê uma nota ao projeto *^* (int de 0 a 10) (obrigatório)
-    "nota": 5,
+    "nota": 6,
     // O que você mais gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_positivos": "",
+    "pontos_positivos": "Gostei da visualização dos dados (e do progresso) através daquela página utilizando o comando 'flask run'. Pra mim, todos os projetos de manipulação de dados (módulo de back-end) deveriam ter uma interface gráfica para poder visualizar o progresso, além de valorizar o projeto para recrutadores, uma vez que vão poder 'ver' a capacidade de manipulação dos bandos de dados.",
     // O que você menos gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_negativos": "",
+    "pontos_negativos": "Deveriam ter sido informados exemplos de objetos dos inputs, isso atrapalha verificar se a função realmente está tratando as informações corretamente. Uma pasta com exemplos de inputs e outputs de cada função, seria uma boa alternativa.",
     // Comentário livre sobre o que você achou do projeto (opcional)
-    "comentário": ""
+    "comentário": "Poderia ter colocado um objeto de input menor, para facilitar a compreensão do que se trata."
 }
