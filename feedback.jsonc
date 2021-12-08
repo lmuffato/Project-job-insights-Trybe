@@ -1,12 +1,12 @@
 {
     // Coloque seu nome para sabermos de quem foi o comentário =D (opcional)
-    "nome": "",
+    "nome": "Max Rudim",
     // Dê uma nota ao projeto *^* (int de 0 a 10) (obrigatório)
-    "nota": ,
+    "nota": 9,
     // O que você mais gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_positivos": "",
+    "pontos_positivos": "Bom projeto para reforçar o conteúdo da aula.",
     // O que você menos gostou no projeto? (obrigatório, mas pode colocar "não há")
-    "pontos_negativos": "",
+    "pontos_negativos": "Demorei um tempo tentando entender o que estava vindo errado pois os logs de erro são confusos.",
     // Comentário livre sobre o que você achou do projeto (opcional)
-    "comentário": ""
+    "comentário": "Nenhum."
 }
