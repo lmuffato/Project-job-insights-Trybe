@@ -19,4 +19,3 @@ def read(path):
     list
         List of rows as dicts
     """
-# ref: https://stackoverflow.com/questions/53917691/creating-a-list-of-objects-with-a-class-in-python
