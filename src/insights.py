@@ -46,7 +46,7 @@ def get_max_salary(path):
 
 def get_min_salary(path):
     job_list = read(path)
-    min_salary = 0
+    min_salary = get_max_salary(path)
     for job in job_list:
         if job['min_salary'] != '' and job['min_salary'] != 'invalid':
             if int(job['min_salary']) < min_salary:
