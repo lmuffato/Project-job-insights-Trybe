@@ -3,37 +3,27 @@ from src.jobs import read
 
 def get_unique_job_types(path):
     jobs_list = read(path)
-    jobs_job_type = set()
+    filter_by_job_type = set()
     for row in jobs_list:
-        if(row['job_type']) != "":
-            jobs_job_type.add(row['job_type'])
-    return jobs_job_type
+        if (row["job_type"]) != "":
+            filter_by_job_type.add(row["job_type"])
+    return filter_by_job_type
 
 
 def filter_by_job_type(jobs, job_type):
-    """Filters a list of jobs by job_type
-
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    job_type : str
-        Job type for the list filter
-
-    Returns
-    -------
-    list
-        List of jobs with provided job_type
-    """
-    return []
+    jobs_job_type = []
+    for job in jobs:
+        if job["job_type"] == job_type:
+            jobs_job_type.append(job)
+    return jobs_job_type
 
 
 def get_unique_industries(path):
     jobs_list = read(path)
     jobs_industry = set()
     for row in jobs_list:
-        if(row['industry']) != "":
-            jobs_industry.add(row['industry'])
+        if (row["industry"]) != "":
+            jobs_industry.add(row["industry"])
     return jobs_industry
 
 
@@ -59,8 +49,8 @@ def get_max_salary(path):
     jobs_list = read(path)
     jobs_max_salary = []
     for row in jobs_list:
-        if(row['max_salary']).isdigit():
-            jobs_max_salary.append(int(row['max_salary']))
+        if (row["max_salary"]).isdigit():
+            jobs_max_salary.append(int(row["max_salary"]))
     return max(jobs_max_salary)
 
 
@@ -68,8 +58,8 @@ def get_min_salary(path):
     jobs_list = read(path)
     jobs_min_salary = []
     for row in jobs_list:
-        if(row['min_salary']).isdigit():
-            jobs_min_salary.append(int(row['min_salary']))
+        if (row["min_salary"]).isdigit():
+            jobs_min_salary.append(int(row["min_salary"]))
     return min(jobs_min_salary)
 
 
