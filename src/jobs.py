@@ -8,7 +8,7 @@ def read(path):
     Parameters
     ----------
     path : str
-        Full path to file
+        Full path to file.
 
     Returns
     -------
